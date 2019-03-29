@@ -6,7 +6,7 @@ public class Poruszanie : MonoBehaviour
 {
 
      
-    float speed = 200;
+    float speed = 2;
     private Rigidbody2D rig;
     public Animator m_Animator;
 
