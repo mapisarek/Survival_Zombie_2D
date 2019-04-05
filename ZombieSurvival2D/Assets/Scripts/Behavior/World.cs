@@ -40,18 +40,18 @@ public class World : MonoBehaviour
         Tile[,] segment ;
         int sizeX, sizeY;
 
-        if (tiles.GetLength(0) > 100)
+        if (tiles.GetLength(0)- i1 > 100)
         {
             sizeX = 100;
         } else
-        sizeX = tiles.GetLength(0);
+        sizeX = tiles.GetLength(0)-i1;
 
-        if (tiles.GetLength(1) > 100)
+        if (tiles.GetLength(1) -i2> 100)
         {
             sizeY = 100;
         }
         else
-            sizeY = tiles.GetLength(1);
+            sizeY = tiles.GetLength(1)-i2;
         segment = new Tile[sizeX, sizeY];
         
         //kopiowanie tiles do segmantu
@@ -64,13 +64,25 @@ public class World : MonoBehaviour
             }
         }
         GenerateMesh(segment, i1,i2);
+        if (tiles.GetLength(0) >= i1 + 100)
+        {
+            SubdivideTileAttay(i1 + 100, i2);
+            return;
+        }
+
+        if (tiles.GetLength(1)>=i2+100)
+        {
+            SubdivideTileAttay(0, i2 + 100);
+            return;
+
+        }
 
     }
     void GenerateMesh(Tile[,] tiles_segment,int x,int y)
     {
         MeshData data = new MeshData(tiles_segment);
 
-        GameObject meshGO = new GameObject("CHUNK");
+        GameObject meshGO = new GameObject("CHUNK" + "_"+x +"_"+y+"_");
         meshGO.transform.position = new Vector3(x, y);
         meshGO.transform.SetParent(this.transform);
 
