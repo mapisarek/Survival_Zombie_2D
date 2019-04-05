@@ -14,7 +14,7 @@ public class World : MonoBehaviour
     void Start()
     {
         CreateTiles();
-        GenerateMesh();
+        SubdivideTileAttay();
     }
 
     // Update is called once per frame
@@ -33,12 +33,47 @@ public class World : MonoBehaviour
             }
         }
     }
-
-    void GenerateMesh()
+    void SubdivideTileAttay(int i1=0,int i2=1)
     {
-        MeshData data = new MeshData(tiles);
+        //Pobranie wilekości segmentu
+
+        Tile[,] segment ;
+        int sizeX, sizeY;
+
+        if (tiles.GetLength(0) > 100)
+        {
+            sizeX = 100;
+        } else
+        sizeX = tiles.GetLength(0);
+
+        if (tiles.GetLength(1) > 100)
+        {
+            sizeY = 100;
+        }
+        else
+            sizeY = tiles.GetLength(1);
+        segment = new Tile[sizeX, sizeY];
+        
+        //kopiowanie tiles do segmantu
+
+        for (int i = i1; i < sizeX; i++)
+        {
+            for (int j =i2; j < sizeY; j++)
+            {
+                segment[i, j] = tiles[i+i1, j+i2];
+            }
+        }
+        GenerateMesh(segment, i1,i2);
+
+    }
+    void GenerateMesh(Tile[,] tiles_segment,int x,int y)
+    {
+        MeshData data = new MeshData(tiles_segment);
 
         GameObject meshGO = new GameObject("CHUNK");
+        meshGO.transform.position = new Vector3(x, y);
+        meshGO.transform.SetParent(this.transform);
+
         MeshFilter filter = meshGO.AddComponent<MeshFilter>();
         meshGO.AddComponent<MeshRenderer>();
 
