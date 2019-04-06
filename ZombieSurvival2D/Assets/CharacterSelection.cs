@@ -45,7 +45,7 @@ public class CharacterSelection : MonoBehaviour
         characterList[index].SetActive(false);
 
         index++;
-        if (index > characterList.Length)
+        if (index > characterList.Length - 1)
         {
             index = 0;
         }
