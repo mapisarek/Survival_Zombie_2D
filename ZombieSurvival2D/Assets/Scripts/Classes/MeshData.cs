@@ -1,42 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class MeshData
-{
-   public List<Vector3> vertices;
-    public List<int> triangles;
-    public MeshData(Tile[,]data)
-    {
-        vertices = new List<Vector3>();
-        triangles = new List<int>();
+public class MeshData {
 
-        for (int i = 0; i < data.GetLength(0); i++)
-        {
-            for (int j = 0; j < data.GetLength(1); j++)
-            {
-                CreateSquare(data[i, j], i, j);
-            }
-        }
-    }
-    void CreateSquare(Tile tile,int x, int y)
-    {
-        vertices.Add(new Vector3(x + 0, y + 0));
-        vertices.Add(new Vector3(x + 1, y + 0));
-        vertices.Add(new Vector3(x + 0, y + 1));
-        vertices.Add(new Vector3(x + 1, y + 1));
+	public List<Vector3> vertices;
+	public List<Vector2> UVs;
+	public List<int> triangles;
 
-        triangles.Add(vertices.Count - 1);
-        triangles.Add(vertices.Count - 3);
-        triangles.Add(vertices.Count - 4);
+	public MeshData (int x, int y, int width, int height) {
 
+		vertices = new List<Vector3> ();
+		UVs = new List<Vector2> ();
+		triangles = new List<int> ();
 
-        triangles.Add(vertices.Count - 2);
-        triangles.Add(vertices.Count - 1);
-        triangles.Add(vertices.Count - 4);
+		for (int i = x; i < width + x; i++) {
+			for (int j = y; j < height + y; j++) {
 
-    }
+				CreateSquare (i, j);
+			}
+		}
+	}
 
+	void CreateSquare (int x, int y) {
+
+		
+
+		Tile tile = World.instance.GetTileAt (x, y);
+
+		vertices.Add (new Vector3(x + 0, y + 0));
+		vertices.Add (new Vector3(x + 1, y + 0));
+		vertices.Add (new Vector3(x + 0, y + 1));
+		vertices.Add (new Vector3(x + 1, y + 1));
+
+		triangles.Add (vertices.Count - 1);
+		triangles.Add (vertices.Count - 3);
+		triangles.Add (vertices.Count - 4);
+
+		triangles.Add (vertices.Count - 2);
+		triangles.Add (vertices.Count - 1);
+		triangles.Add (vertices.Count - 4);
+
+		UVs.AddRange (SpriteLoader.instance.GetTileUVs (tile));
+	}
 }
-
