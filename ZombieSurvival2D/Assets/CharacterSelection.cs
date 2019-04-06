@@ -39,5 +39,18 @@ public class CharacterSelection : MonoBehaviour
 
         characterList[index].SetActive(true);
     }
+
+    public void ToggleRight()
+    {
+        characterList[index].SetActive(false);
+
+        index++;
+        if (index > characterList.Length)
+        {
+            index = 0;
+        }
+
+        characterList[index].SetActive(true);
+    }
 }
 
