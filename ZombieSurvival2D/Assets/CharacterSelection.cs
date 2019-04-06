@@ -10,6 +10,8 @@ public class CharacterSelection : MonoBehaviour
 
     private void Start()
     {
+        index = PlayerPrefs.GetInt("CharacterSelected");
+
         characterList = new GameObject[transform.childCount];
         
         for(int i = 0; i < transform.childCount; i++)
@@ -17,14 +19,14 @@ public class CharacterSelection : MonoBehaviour
             characterList[i] = transform.GetChild(i).gameObject;
         }
 
-        foreach(GameObject go in characterList)
+        foreach(GameObject objects in characterList)
         {
-            go.SetActive(false);
+            objects.SetActive(false);
         }
 
-        if (characterList[0])
+        if (characterList[index])
         {
-            characterList[0].SetActive(true);
+            characterList[index].SetActive(true);
         }
     }
 
