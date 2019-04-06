@@ -11,7 +11,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void BackButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void LoadVolumeSettings()
