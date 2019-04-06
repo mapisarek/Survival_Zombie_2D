@@ -37,9 +37,18 @@ public class World : MonoBehaviour {
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
 
+                float value = Mathf.PerlinNoise(i / (float)width*2f, j / (float)height*2f);
 
+                if (value>0.5f)
+                {
+                    tiles[i, j] = new Tile(Tile.Type.Grass);
+                }
+                else
+                {
+                    tiles[i, j] = new Tile(Tile.Type.Dirt);
 
-				tiles [i, j] = new Tile (Tile.Type.Grass);
+                }
+                
 			}
 		}
 	}
