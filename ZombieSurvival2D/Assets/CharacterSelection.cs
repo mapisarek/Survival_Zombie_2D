@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterSelection : MonoBehaviour
 {
     private GameObject[] characterList;
+    private int index;
 
     private void Start()
     {
@@ -24,6 +25,19 @@ public class CharacterSelection : MonoBehaviour
         {
             characterList[0].SetActive(true);
         }
+    }
+
+    public void ToggleLeft()
+    {
+        characterList[index].SetActive(false);
+
+        index--;
+        if(index < 0)
+        {
+            index = characterList.Length - 1;
+        }
+
+        characterList[index].SetActive(true);
     }
 }
 
