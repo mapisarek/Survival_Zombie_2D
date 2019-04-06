@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -51,6 +52,12 @@ public class CharacterSelection : MonoBehaviour
         }
 
         characterList[index].SetActive(true);
+    }
+
+    public void ConfirmButton()
+    {
+        PlayerPrefs.SetInt("CharacterSelected", index);
+        SceneManager.LoadScene("PlayerMovement");
     }
 }
 
