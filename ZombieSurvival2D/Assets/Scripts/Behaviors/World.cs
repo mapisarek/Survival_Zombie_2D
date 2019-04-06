@@ -25,6 +25,30 @@ public class World : MonoBehaviour {
 
     Noise noise;
 
+    public float seaLevel;
+
+    public float beachStartHeight;
+    public float beachEndHeight;
+
+    public float beach2StartHeight;
+    public float beach2EndHeight;
+
+    public float dirtStartHeight;
+    public float dirtEndHeight;
+
+    public float grassStartHeight;
+    public float grassEndHeight;
+
+    public float grass2StartHeight;
+    public float grass2EndHeight;
+
+    public float stoneStartHeight;
+    public float stoneEndHeight;
+
+    public float snowStartHeight;
+    public float snowEndHeight;
+
+
     // Use this for initialization
     void Awake() {
 
@@ -63,21 +87,50 @@ public class World : MonoBehaviour {
 		for (int i = 0; i < width; i++) {
 			for (int j = 0; j < height; j++) {
 
-                
-
-                if (noiseValues[i,j]>0.5f)
-                {
-                    tiles[i, j] = new Tile(Tile.Type.Grass);
-                }
-                else
-                {
-                    tiles[i, j] = new Tile(Tile.Type.Dirt);
-
-                }
+                tiles[i, j] = MakeTileAtHeight(noiseValues[i, j]);
                 
 			}
 		}
 	}
+
+    Tile MakeTileAtHeight(float currentHeight)
+    {
+        if (currentHeight<=seaLevel)
+        {
+            return new Tile(Tile.Type.Water);
+        }
+        if (currentHeight >= beachStartHeight && currentHeight <= beachEndHeight)
+        {
+            return new Tile(Tile.Type.Sand);
+        }
+        if (currentHeight >= beach2StartHeight && currentHeight <= beach2EndHeight)
+        {
+            return new Tile(Tile.Type.Sand2);
+        }
+        if (currentHeight >= dirtStartHeight && currentHeight <= dirtEndHeight)
+        {
+            return new Tile(Tile.Type.Dirt);
+        }
+        if (currentHeight >= grassStartHeight && currentHeight <= grassEndHeight)
+        {
+            return new Tile(Tile.Type.Grass);
+        }
+        if (currentHeight >= grass2StartHeight && currentHeight <= grass2EndHeight)
+        {
+            return new Tile(Tile.Type.Grass2);
+        }
+        if (currentHeight >= stoneStartHeight && currentHeight <= stoneEndHeight)
+        {
+            return new Tile(Tile.Type.Stone);
+        }
+        if (currentHeight >= snowStartHeight && currentHeight <= snowEndHeight)
+        {
+            return new Tile(Tile.Type.Snow);
+        }
+
+        return new Tile(Tile.Type.Void);
+    }
+
 
 	void SubdivideTilesArray (int i1 = 0, int i2 = 0) {
 
