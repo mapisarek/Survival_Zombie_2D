@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6f55da2f88150bf4a964f06800e5d485
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - healthTexture: {fileID: 2800000, guid: cedb256da58edba4ca89f7630451685f, type: 3}
+  - armourTexture: {fileID: 2800000, guid: cedb256da58edba4ca89f7630451685f, type: 3}
+  - staminaTexture: {fileID: 2800000, guid: cedb256da58edba4ca89f7630451685f, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,9 +7,10 @@ public class Poruszanie : MonoBehaviour
 
      
     float speed = 2;
+    float speeds = 4;
     private Rigidbody2D rig;
     public Animator m_Animator;
-    internal Vector3 direction;
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,13 +27,23 @@ public class Poruszanie : MonoBehaviour
 
         float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
+        if (!Input.GetKey(KeyCode.LeftShift))
+        {
+            Vector3 movement = new Vector3(hAxis, vAxis, vAxis) * speed * Time.deltaTime;
+            rig.MovePosition(transform.position + movement);
+        }
+        if ( Input.GetKey(KeyCode.LeftShift))
+        {
+            Vector3 movement = new Vector3(hAxis, vAxis, vAxis) * speeds * Time.deltaTime;
+            rig.MovePosition(transform.position + movement);
 
-        Vector3 movement = new Vector3(hAxis, vAxis, vAxis) * speed * Time.deltaTime;
-        rig.MovePosition(transform.position+movement);
+            //currentStamina -= 1;
+            //currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
 
+        }
 
-        m_Animator.SetFloat("Poziom", hAxis);
-        m_Animator.SetFloat("Pion", vAxis);
+            m_Animator.SetFloat("Poziom", hAxis);
+             m_Animator.SetFloat("Pion", vAxis);
 
 
 
