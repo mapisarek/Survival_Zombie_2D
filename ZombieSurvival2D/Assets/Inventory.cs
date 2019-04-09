@@ -6,8 +6,10 @@ public class Inventory : MonoBehaviour
 {
 
     private bool inventoryEnabled;
+    private bool actionSlotEnabled;
     public GameObject inventory;
     public GameObject equipment;
+    public GameObject actionSlot;
 
     private int allInventorySlots;
     private int enablesInventorySlots;
@@ -51,5 +53,21 @@ public class Inventory : MonoBehaviour
             inventory.SetActive(false);
             equipment.SetActive(false);
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            actionSlotEnabled = !actionSlotEnabled;
+        }
+
+        if (actionSlotEnabled == true)
+        {
+            actionSlot.SetActive(false);
+        }
+        else
+        {
+            actionSlot.SetActive(true)
+        }
+
     }
 }
