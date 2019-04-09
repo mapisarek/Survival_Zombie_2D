@@ -5,8 +5,19 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
-    public bool inventoryEnabled;
+    private bool inventoryEnabled;
     public GameObject inventory;
+
+    private int allSlots;
+    private int enablesSlots;
+    private GameObject[] slot;
+
+    public GameObject slotHolder;
+
+    void Start()
+    {
+
+    }
 
     public void Update()
     {
