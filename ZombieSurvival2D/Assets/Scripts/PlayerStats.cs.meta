@@ -4,7 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - healthTexture: {fileID: 2800000, guid: ccbb9727b6e3a464fbad3820b647e216, type: 3}
+  - healthTexture: {fileID: 2800000, guid: fad85a0e8ccce544b87c90740bc68ac9, type: 3}
   - armourTexture: {fileID: 2800000, guid: 95e18c310564a964a8171893b5accd9f, type: 3}
   - staminaTexture: {fileID: 2800000, guid: 33e10bbe3176e3449a955fbd18cf647d, type: 3}
   - BackgroundTexture: {fileID: 2800000, guid: cddd76db37742a94088445b7734eebcd, type: 3}
