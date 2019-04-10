@@ -126,5 +126,9 @@ public class Inventory : MonoBehaviour
         GameIsPaused = true;
     }
 
+    public void QuitTheGame()
+    {
+        Application.Quit();
+    }
     
 }
