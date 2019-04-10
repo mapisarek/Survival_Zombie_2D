@@ -27,11 +27,6 @@ public class Inventory : MonoBehaviour
     public GameObject inventoryHolder;
     public GameObject equipmentHolder;
 
-    void Start()
-    {
-        getActionSlotElements();
-    }
-
     public void Update()
     {
         toggleInventory();
@@ -39,19 +34,6 @@ public class Inventory : MonoBehaviour
         toggleCharacterStats();
     }
 
-    public void setActiveSlotInActionSlot()
-    {
-        
-    }
-
-    public void getActionSlotElements()
-    {
-        for(int i = 0; i < actionSlot.transform.childCount; i++)
-        {
-            actionSlots[i] = actionSlot.transform.GetChild(i).gameObject;
-        }
-
-    }
 
     public void toggleInventory()
     {
