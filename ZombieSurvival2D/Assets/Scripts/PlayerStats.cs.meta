@@ -3,7 +3,12 @@ guid: 544a51c9a5fe15d4d903e7d7411984f4
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - healthTexture: {fileID: 2800000, guid: ccbb9727b6e3a464fbad3820b647e216, type: 3}
+  - armourTexture: {fileID: 2800000, guid: 95e18c310564a964a8171893b5accd9f, type: 3}
+  - staminaTexture: {fileID: 2800000, guid: 33e10bbe3176e3449a955fbd18cf647d, type: 3}
+  - BackgroundTexture: {fileID: 2800000, guid: cddd76db37742a94088445b7734eebcd, type: 3}
+  - m_Animator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
