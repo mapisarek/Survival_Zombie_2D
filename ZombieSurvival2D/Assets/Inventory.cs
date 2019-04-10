@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     private bool inventoryEnabled;
     private bool characterStatsEnabled;
     private bool actionSlotEnabled;
+    private bool craftBoxEnabled;
     public static bool GameIsPaused = false;
 
     public GameObject inventory;
@@ -17,6 +18,7 @@ public class Inventory : MonoBehaviour
     public GameObject clock;
     public GameObject characterStats;
     public GameObject pauseMenu;
+    public GameObject craftBox;
 
     private int allInventorySlots;
     private int enablesInventorySlots;
@@ -36,7 +38,28 @@ public class Inventory : MonoBehaviour
         toggleActionSlot();
         toggleCharacterStats();
         togglePauseMenu();
+        toggleCraftBox();
     }
+
+    public void toggleCraftBox()
+    {
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            craftBoxEnabled = !craftBoxEnabled;
+        }
+
+        if (craftBoxEnabled == true)
+        {
+            craftBox.SetActive(true);
+        }
+        else
+        {
+            craftBox.SetActive(false);
+        }
+
+
+    }
+
 
 
     public void toggleInventory()
