@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     public GameObject inventory;
     public GameObject equipment;
     public GameObject actionSlot;
+    public GameObject clock;
 
     private int allInventorySlots;
     private int enablesInventorySlots;
@@ -60,9 +61,11 @@ public class Inventory : MonoBehaviour
         {
             inventory.SetActive(true);
             equipment.SetActive(true);
+            clock.SetActive(false);
         }
         else
         {
+            clock.SetActive(true);
             inventory.SetActive(false);
             equipment.SetActive(false);
         }
