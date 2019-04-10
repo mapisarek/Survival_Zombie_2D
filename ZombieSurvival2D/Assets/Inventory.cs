@@ -9,11 +9,14 @@ public class Inventory : MonoBehaviour
     private bool inventoryEnabled;
     private bool characterStatsEnabled;
     private bool actionSlotEnabled;
+    public static bool GameIsPaused = false;
+
     public GameObject inventory;
     public GameObject equipment;
     public GameObject actionSlot;
     public GameObject clock;
     public GameObject characterStats;
+    public GameObject pauseMenu;
 
     private int allInventorySlots;
     private int enablesInventorySlots;
@@ -93,4 +96,32 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public void togglePauseMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)){
+
+            if (GameIsPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    private void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+    }
+
+    private void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        GameIsPaused = true;
+    }
 }
