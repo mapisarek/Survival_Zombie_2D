@@ -85,6 +85,18 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public void toggleFuncPanels()
+    {
+        if(inventoryEnabled == false)
+        {
+            inventory.SetActive(true);
+        }
+        if (craftBoxEnabled == false)
+        {
+            craftBox.SetActive(true);
+        }
+    }
+
     public void toggleCharacterStats()
     {
         if (Input.GetKeyDown(KeyCode.P))
