@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -18,32 +19,44 @@ public class Inventory : MonoBehaviour
 
     private GameObject[] inventorySlot;
     private GameObject[] equipmentSlot;
+    private GameObject[] actionSlots;
 
     public GameObject inventoryHolder;
     public GameObject equipmentHolder;
 
     void Start()
     {
-        allInventorySlots = 104;
-        allEquipmentSlots = 5;
+        getActionSlotElements();
+    }
 
-        inventorySlot = new GameObject[allInventorySlots];
+    public void Update()
+    {
+        toggleInventory();
+        toggleActionSlot();
+    }
 
-        for(int i=0; i < allInventorySlots; i++)
+    public void setActiveSlotInActionSlot()
+    {
+        
+    }
+
+    public void getActionSlotElements()
+    {
+        for(int i = 0; i < actionSlot.transform.childCount; i++)
         {
-            inventorySlot[i] = inventoryHolder.transform.GetChild(i).gameObject;
+            actionSlots[i] = actionSlot.transform.GetChild(i).gameObject;
         }
 
     }
 
-    public void Update()
+    public void toggleInventory()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryEnabled = !inventoryEnabled;
         }
 
-        if(inventoryEnabled == true)
+        if (inventoryEnabled == true)
         {
             inventory.SetActive(true);
             equipment.SetActive(true);
@@ -55,6 +68,10 @@ public class Inventory : MonoBehaviour
         }
 
 
+    }
+
+    public void toggleActionSlot()
+    {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             actionSlotEnabled = !actionSlotEnabled;
@@ -70,4 +87,5 @@ public class Inventory : MonoBehaviour
         }
 
     }
+
 }
