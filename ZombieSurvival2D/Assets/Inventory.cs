@@ -7,11 +7,13 @@ public class Inventory : MonoBehaviour
 {
 
     private bool inventoryEnabled;
+    private bool characterStatsEnabled;
     private bool actionSlotEnabled;
     public GameObject inventory;
     public GameObject equipment;
     public GameObject actionSlot;
     public GameObject clock;
+    public GameObject characterStats;
 
     private int allInventorySlots;
     private int enablesInventorySlots;
@@ -71,6 +73,23 @@ public class Inventory : MonoBehaviour
         }
 
 
+    }
+
+    public void toggleCharacterStats()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            characterStatsEnabled = !characterStatsEnabled;
+        }
+
+        if (characterStats == true)
+        {
+            characterStats.SetActive(false);
+        }
+        else
+        {
+            characterStats.SetActive(true);
+        }
     }
 
     public void toggleActionSlot()
