@@ -66,7 +66,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            actionSlot.SetActive(true)
+            actionSlot.SetActive(true);
         }
 
     }
