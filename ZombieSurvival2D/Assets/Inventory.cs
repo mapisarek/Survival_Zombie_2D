@@ -36,6 +36,7 @@ public class Inventory : MonoBehaviour
     {
         toggleInventory();
         toggleActionSlot();
+        toggleCharacterStats();
     }
 
     public void setActiveSlotInActionSlot()
@@ -77,12 +78,12 @@ public class Inventory : MonoBehaviour
 
     public void toggleCharacterStats()
     {
-        if (Input.GetKeyDown(KeyCode.O))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             characterStatsEnabled = !characterStatsEnabled;
         }
 
-        if (characterStats == true)
+        if (characterStatsEnabled == true)
         {
             characterStats.SetActive(false);
         }
