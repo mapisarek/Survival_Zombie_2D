@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour
         toggleInventory();
         toggleActionSlot();
         toggleCharacterStats();
+        togglePauseMenu();
     }
 
 
@@ -111,17 +112,19 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
+
+    
 }
