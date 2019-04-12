@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-
-
-
-
+    public bool isEnemy = true;
     private float maxHealth = 100;
     private float currentHealth = 100;
     private float maxArmour = 100;
@@ -25,13 +22,13 @@ public class PlayerStats : MonoBehaviour
 
     private float barWidth;
     private float barHeight;
-
     private float canRegenerate = 0.0f;
     private float canRegenerateeat = 0.0f;
     float speed = 2;
     float speeds = 4;
     private Rigidbody2D rig;
     public Animator m_Animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,7 +79,6 @@ public class PlayerStats : MonoBehaviour
         }
         if (currentStamina < maxStamina && Input.GetKey(KeyCode.E))
         {
-
             regenerate(ref currentStamina, maxStamina, 0.02f, 2);
         }
 
@@ -91,50 +87,50 @@ public class PlayerStats : MonoBehaviour
     void Awake()
     {
         barHeight = Screen.height * 0.02f;
-        barWidth = barHeight * 10.0f;
+        barWidth = barHeight * 17.0f;
 
     }
 
     void OnGUI()
     {
-        GUI.DrawTexture(new Rect(Screen.width - barWidth - 20,
-                                 Screen.height - barHeight * 3 - 25,
+        GUI.DrawTexture(new Rect(24,
+                                 37,
                                  maxArmour * barWidth / maxArmour,
                                  barHeight),
                         BackgroundTexture);
-        GUI.DrawTexture(new Rect(Screen.width - barWidth - 20,
-                                 Screen.height - barHeight * 3 - 30,
+        GUI.DrawTexture(new Rect(24,
+                                 85,
                                  maxHealth * barWidth / maxHealth,
                                  barHeight),
                         BackgroundTexture);
 
-        GUI.DrawTexture(new Rect(Screen.width - barWidth - 20,
-                                 Screen.height - barHeight * 3 - 10,
+        GUI.DrawTexture(new Rect(24,
+                                 135,
                                  maxStamina * barWidth / maxStamina,
                                  barHeight),
                         BackgroundTexture);
 
 
 
-        GUI.DrawTexture(new Rect(Screen.width - barWidth - 20,
-                                 Screen.height - barHeight * 3 - 25,
+        GUI.DrawTexture(new Rect(24,
+                                 37,
                                  currentArmour * barWidth / maxArmour,
                                  barHeight),
                         armourTexture);
-        GUI.DrawTexture(new Rect(Screen.width - barWidth - 20,
-                                 Screen.height - barHeight * 3 - 30,
+        GUI.DrawTexture(new Rect(24,
+                                 85,
                                  currentHealth * barWidth / maxHealth,
                                  barHeight),
                         healthTexture);
 
-        GUI.DrawTexture(new Rect(Screen.width - barWidth - 20,
-                                 Screen.height - barHeight * 3 - 10,
+        GUI.DrawTexture(new Rect(24,
+                                 135,
                                  currentStamina * barWidth / maxStamina,
                                  barHeight),
                         staminaTexture);
     }
 
-    public bool isEnemy = true;
+
     public void Damage(float damageCount)
     {
         float redukcja = 1 - currentArmour / 100;
