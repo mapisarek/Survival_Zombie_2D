@@ -132,6 +132,11 @@ public class Inventory : MonoBehaviour
 
     }
 
+    public void GetChildrenPosition()
+    {
+        transform.localPosition = transform.GetChild(0).transform.localPosition;
+    }
+
     public void togglePauseMenu()
     {
         if (Input.GetKeyDown(KeyCode.Escape)){
