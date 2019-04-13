@@ -5,6 +5,18 @@ using UnityEngine;
 
 public class FollowingCamera : MonoBehaviour
 {
+    public GameObject characterList;
+    private int index;
+    private CinemachineVirtualCamera camFollower;
 
+    public void Start()
+    {
+
+    }
+
+    private void SetUpCamera()
+    {
+
+    }
 
 }
