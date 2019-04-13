@@ -11,12 +11,16 @@ public class FollowingCamera : MonoBehaviour
 
     public void Start()
     {
+        index = PlayerPrefs.GetInt("CharacterSelected");
+        SetUpCamera();
 
     }
 
     private void SetUpCamera()
     {
-
+        camFollower = GameObject.Find("FollowCam").GetComponent<CinemachineVirtualCamera>();
+        camFollower.Follow = characterList.transform.GetChild(index);
+        camFollower.LookAt = characterList.transform.GetChild(index);
     }
 
 }
