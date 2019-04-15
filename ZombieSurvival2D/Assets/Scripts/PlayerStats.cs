@@ -11,7 +11,7 @@ public class PlayerStats : MonoBehaviour
     public float Armor = 100;
 
     private float maxStamina = 100;
-    private float currentStamina = 100;
+    private float currentStamina = 10;
     private float currentArmour;
 
     public Texture2D healthTexture;
@@ -55,7 +55,7 @@ public class PlayerStats : MonoBehaviour
                 rig.MovePosition(transform.position + movement);
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W))
                 {
-                    currentStamina -= 0.5f;
+                    currentStamina -= 3.0f;
                     currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
                     canRegenerate = 3.0f;
                 }
@@ -81,7 +81,7 @@ public class PlayerStats : MonoBehaviour
         {
             regenerate(ref currentStamina, maxStamina, 0.02f, 2);
         }
-
+        
     }
 
     void Awake()
@@ -113,18 +113,18 @@ public class PlayerStats : MonoBehaviour
 
 
         GUI.DrawTexture(new Rect(24,
-                                 37,
+                                 135,
                                  currentArmour * barWidth / maxArmour,
                                  barHeight),
                         armourTexture);
         GUI.DrawTexture(new Rect(24,
-                                 85,
+                                 37,
                                  currentHealth * barWidth / maxHealth,
                                  barHeight),
                         healthTexture);
 
         GUI.DrawTexture(new Rect(24,
-                                 135,
+                                 85,
                                  currentStamina * barWidth / maxStamina,
                                  barHeight),
                         staminaTexture);
@@ -142,7 +142,7 @@ public class PlayerStats : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void OnTriggerEnter2D(Collider2D otherCollider)
+    public void OnTriggerEnter2D(Collider2D otherCollider)
     {
         // Is this a shot?
         MeleeAttack shot = otherCollider.gameObject.GetComponent<MeleeAttack>();
@@ -159,7 +159,7 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    void regenerate(ref float currentStat, float maxStat, float reg, float time)
+    public void regenerate(ref float currentStat, float maxStat, float reg, float time)
     {
         float timea = time;
         if (time == 0)
