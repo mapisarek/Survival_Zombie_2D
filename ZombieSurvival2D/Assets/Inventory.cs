@@ -34,11 +34,14 @@ public class Inventory : MonoBehaviour
 
     public void Update()
     {
-        toggleInventory();
-        toggleActionSlot();
-        toggleCharacterStats();
+        if (pauseMenu.activeSelf != true)
+        {
+            toggleInventory();
+            toggleActionSlot();
+            toggleCharacterStats();
+            toggleCraftBox();
+        }
         togglePauseMenu();
-        toggleCraftBox();
     }
 
     public void toggleCraftBox()
