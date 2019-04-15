@@ -76,13 +76,16 @@ public class Inventory : MonoBehaviour
         {
             inventory.SetActive(true);
             equipment.SetActive(true);
-            clock.SetActive(false);
+           // clock.SetActive(false);
+            clock.transform.position = new Vector3(clock.transform.position.x, clock.transform.position.y, -2000);
         }
         else
         {
-            clock.SetActive(true);
+            //clock.SetActive(true);
             inventory.SetActive(false);
             equipment.SetActive(false);
+
+            clock.transform.position = new Vector3(clock.transform.position.x, clock.transform.position.y, 0);
         }
 
 
