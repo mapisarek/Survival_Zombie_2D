@@ -46,12 +46,9 @@ public class Inventory : MonoBehaviour
             toggleCraftBox();
         }
         togglePauseMenu();
-    }
-
-    public void Start()
-    {
         GetUserNickname();
         AccessNicknameCanvas();
+
     }
 
     public void toggleCraftBox()
@@ -75,7 +72,7 @@ public class Inventory : MonoBehaviour
 
     private void GetUserNickname()
     {
-        nickName = GameObject.Find("NicknameText").GetComponent<TextMeshProUGUI>();
+        nickName = GetComponentInChildren<TextMeshProUGUI>();
         nickName.text = PlayerPrefs.GetString("Nickname");
     }
 
