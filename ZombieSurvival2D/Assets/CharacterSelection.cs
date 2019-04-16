@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CharacterSelection : MonoBehaviour
 {
     private GameObject[] characterList;
     private int index;
+    private GameObject placeHolder;
+    private string nickName;
 
     private void Start()
     {
@@ -62,6 +65,13 @@ public class CharacterSelection : MonoBehaviour
     {
         PlayerPrefs.SetInt("CharacterSelected", index);
         SceneManager.LoadScene("Main");
+        GetUserNickname();
+    }
+
+    private void GetUserNickname()
+    {
+        nickName = gameObject.GetComponent<InputField>().placeholder.GetComponent<Text>().text;
+        PlayerPrefs.SetString("Nickname", nickName);
     }
 }
 
