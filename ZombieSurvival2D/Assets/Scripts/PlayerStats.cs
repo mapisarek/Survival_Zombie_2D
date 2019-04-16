@@ -9,6 +9,7 @@ public class PlayerStats : MonoBehaviour
     private float currentHealth = 100;
     private float maxArmour = 100;
     public float Armor = 100;
+    public GameObject charStatsPanel;
 
     private float maxStamina = 100;
     private float currentStamina = 10;
@@ -19,7 +20,7 @@ public class PlayerStats : MonoBehaviour
     public Texture2D staminaTexture;
     public Texture2D BackgroundTexture;
 
-
+    private float posX, posY, mulHP, mulAR, mulSTA;
     private float barWidth;
     private float barHeight;
     private float canRegenerate = 0.0f;
@@ -93,38 +94,54 @@ public class PlayerStats : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.DrawTexture(new Rect(24,
-                                 37,
+        if (charStatsPanel.activeSelf != false)
+        {
+            posX = 24;
+            posY = 37;
+            mulHP = 1;
+            mulAR = 3.64864f;
+            mulSTA = 2.29729f;
+        }
+        else
+        {
+            posX = 24;
+            posY = 37;
+            mulHP = 1;
+            mulAR = 2f;
+            mulSTA = 1.5f;
+        }
+        GUI.DrawTexture(new Rect(posX,
+                                 posY * mulHP,
                                  maxArmour * barWidth / maxArmour,
                                  barHeight),
                         BackgroundTexture);
-        GUI.DrawTexture(new Rect(24,
-                                 85,
+        GUI.DrawTexture(new Rect(posX,
+                                 posY * mulSTA,
                                  maxHealth * barWidth / maxHealth,
                                  barHeight),
                         BackgroundTexture);
 
-        GUI.DrawTexture(new Rect(24,
-                                 135,
+        GUI.DrawTexture(new Rect(posX,
+                                 posY * mulAR,
                                  maxStamina * barWidth / maxStamina,
                                  barHeight),
                         BackgroundTexture);
 
 
 
-        GUI.DrawTexture(new Rect(24,
-                                 135,
+        GUI.DrawTexture(new Rect(posX,
+                                 posY * mulAR,
                                  currentArmour * barWidth / maxArmour,
                                  barHeight),
                         armourTexture);
-        GUI.DrawTexture(new Rect(24,
-                                 37,
+        GUI.DrawTexture(new Rect(posX,
+                                 posY * mulHP,
                                  currentHealth * barWidth / maxHealth,
                                  barHeight),
                         healthTexture);
 
-        GUI.DrawTexture(new Rect(24,
-                                 85,
+        GUI.DrawTexture(new Rect(posX,
+                                 posY * mulSTA,
                                  currentStamina * barWidth / maxStamina,
                                  barHeight),
                         staminaTexture);
