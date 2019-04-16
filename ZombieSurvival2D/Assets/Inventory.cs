@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,7 @@ public class Inventory : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject craftBox;
 
+
     private int allInventorySlots;
     private int enablesInventorySlots;
     private int allEquipmentSlots;
@@ -28,6 +30,8 @@ public class Inventory : MonoBehaviour
     private GameObject[] inventorySlot;
     private GameObject[] equipmentSlot;
     private GameObject[] actionSlots;
+    private TextMeshProUGUI nickName;
+    private Canvas nicknameCanvas;
 
     public GameObject inventoryHolder;
     public GameObject equipmentHolder;
@@ -42,6 +46,9 @@ public class Inventory : MonoBehaviour
             toggleCraftBox();
         }
         togglePauseMenu();
+        GetUserNickname();
+        AccessNicknameCanvas();
+
     }
 
     public void toggleCraftBox()
@@ -61,6 +68,12 @@ public class Inventory : MonoBehaviour
         }
 
 
+    }
+
+    private void GetUserNickname()
+    {
+        nickName = GetComponentInChildren<TextMeshProUGUI>();
+        nickName.text = PlayerPrefs.GetString("Nickname");
     }
 
 
@@ -158,8 +171,14 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void AccessNicknameCanvas()
+    {
+        nicknameCanvas = GameObject.Find("NicknameCanvas").GetComponent<Canvas>();
+    }
+
     public void ResumeGame()
     {
+        nicknameCanvas.enabled = true;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -167,6 +186,7 @@ public class Inventory : MonoBehaviour
 
     public void PauseGame()
     {
+        nicknameCanvas.enabled = false;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
