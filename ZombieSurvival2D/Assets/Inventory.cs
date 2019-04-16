@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,7 @@ public class Inventory : MonoBehaviour
     private GameObject[] inventorySlot;
     private GameObject[] equipmentSlot;
     private GameObject[] actionSlots;
+    private TextMeshProUGUI nickName;
 
     public GameObject inventoryHolder;
     public GameObject equipmentHolder;
@@ -42,6 +44,11 @@ public class Inventory : MonoBehaviour
             toggleCraftBox();
         }
         togglePauseMenu();
+    }
+
+    public void Start()
+    {
+        GetUserNickname();
     }
 
     public void toggleCraftBox()
@@ -63,6 +70,11 @@ public class Inventory : MonoBehaviour
 
     }
 
+    private void GetUserNickname()
+    {
+        nickName = GameObject.Find("NicknameText").GetComponent<TextMeshProUGUI>();
+        nickName.text = PlayerPrefs.GetString("Nickname");
+    }
 
 
     public void toggleInventory()
