@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,7 +11,7 @@ public class CharacterSelection : MonoBehaviour
     private GameObject[] characterList;
     private int index;
     private GameObject placeHolder;
-    private string nickName;
+    public TMP_InputField nickName;
 
     private void Start()
     {
@@ -70,8 +71,7 @@ public class CharacterSelection : MonoBehaviour
 
     private void GetUserNickname()
     {
-        nickName = gameObject.GetComponent<InputField>().placeholder.GetComponent<Text>().text;
-        PlayerPrefs.SetString("Nickname", nickName);
+        PlayerPrefs.SetString("Nickname", nickName.text);
     }
 }
 
