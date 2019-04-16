@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject craftBox;
 
+
     private int allInventorySlots;
     private int enablesInventorySlots;
     private int allEquipmentSlots;
@@ -30,6 +31,7 @@ public class Inventory : MonoBehaviour
     private GameObject[] equipmentSlot;
     private GameObject[] actionSlots;
     private TextMeshProUGUI nickName;
+    private Canvas nicknameCanvas;
 
     public GameObject inventoryHolder;
     public GameObject equipmentHolder;
@@ -49,6 +51,7 @@ public class Inventory : MonoBehaviour
     public void Start()
     {
         GetUserNickname();
+        AccessNicknameCanvas();
     }
 
     public void toggleCraftBox()
@@ -75,6 +78,7 @@ public class Inventory : MonoBehaviour
         nickName = GameObject.Find("NicknameText").GetComponent<TextMeshProUGUI>();
         nickName.text = PlayerPrefs.GetString("Nickname");
     }
+
 
 
     public void toggleInventory()
@@ -170,8 +174,14 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void AccessNicknameCanvas()
+    {
+        nicknameCanvas = GameObject.Find("NicknameCanvas").GetComponent<Canvas>();
+    }
+
     public void ResumeGame()
     {
+        nicknameCanvas.enabled = true;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
@@ -179,6 +189,7 @@ public class Inventory : MonoBehaviour
 
     public void PauseGame()
     {
+        nicknameCanvas.enabled = false;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
