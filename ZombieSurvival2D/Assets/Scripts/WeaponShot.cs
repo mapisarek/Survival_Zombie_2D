@@ -31,6 +31,9 @@ public class WeaponShot : MonoBehaviour
         //var screenPoint = Camera.main.ViewportToScreenPoint(transform.localPosition);
         var screenPoint = Camera.main.WorldToScreenPoint(transform.position);
         var offset = new Vector2(moues.x - screenPoint.x, moues.y - screenPoint.y);
+        var angel = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
+        Quaternion a = transform.rotation = Quaternion.Euler(0, 0, angel);
+
 
     }
 }
