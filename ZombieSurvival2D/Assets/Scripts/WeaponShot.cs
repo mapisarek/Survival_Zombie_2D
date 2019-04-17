@@ -14,6 +14,7 @@ public class WeaponShot : MonoBehaviour
     public int num_mag = 5;
     public int damage = 1;
     public bool isEnemyShot = false;
+    public float fast_bulest = 20f;
 
     private float canShot = 0.0f;
     private float canAmo = 0.0f;
@@ -57,7 +58,7 @@ public class WeaponShot : MonoBehaviour
             if (canShot <= 0.0f && amo > 0)
             {
                 amo -= 1;
-                canShot = 0.01f;
+                canShot = fast_shot;
                 fire();
             }
         }
@@ -124,7 +125,7 @@ public class WeaponShot : MonoBehaviour
         GameObject g = (GameObject)Instantiate(prefab, transform.position + dir / 30, Quaternion.Euler(0, 0, angel));
         Destroy(g, 1);
         g.GetComponent<Rigidbody2D>().gravityScale = 0;
-        g.GetComponent<Rigidbody2D>().AddForce(dir * 50);
+        g.GetComponent<Rigidbody2D>().AddForce(dir * fast_bulest);
 
         //
     }
