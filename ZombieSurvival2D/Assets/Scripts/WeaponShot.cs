@@ -47,7 +47,15 @@ public class WeaponShot : MonoBehaviour
 
         }
 
-
+        if (Input.GetKey(KeyCode.Mouse0) && CanUse == 1)
+        {
+            if (canShot <= 0.0f && amo > 0)
+            {
+                amo -= 1;
+                canShot = 0.01f;
+                fire();
+            }
+        }
 
 
 
