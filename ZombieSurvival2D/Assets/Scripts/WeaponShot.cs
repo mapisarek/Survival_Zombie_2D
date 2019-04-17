@@ -56,7 +56,24 @@ public class WeaponShot : MonoBehaviour
                 fire();
             }
         }
+        if (Input.GetKey(KeyCode.R))
+        {
+            if (magazin > 0 && amo >= 0 && amo < 300)
+            {
+                amo = 0;
+                if (rel == 0)
+                {
+                    rel = 1;
+                    magazin -= 1;
 
+                }
+                canAmo = 2f;
+
+
+
+
+            }
+        }
 
 
 
