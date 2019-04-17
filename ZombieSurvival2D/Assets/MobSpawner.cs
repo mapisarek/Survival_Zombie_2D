@@ -18,6 +18,19 @@ public class MobSpawner : MonoBehaviour
     public float yMin;
     public float yMax;
 
+    public void Update()
+    {
+        theCountdown -= Time.deltaTime;
+        if (theCountdown <= 0)
+        {
+            SpawnGoodies();
+            theCountdown = waitingForNextSpawn;
+        }
+    }
 
-    
+    private void SpawnGoodies()
+    {
+
+    }
+
 }
