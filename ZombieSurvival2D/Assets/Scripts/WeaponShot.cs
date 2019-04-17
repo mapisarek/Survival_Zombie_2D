@@ -129,4 +129,28 @@ public class WeaponShot : MonoBehaviour
         barHeight = Screen.height * 0.02f;
         barWidth = barHeight * 10.0f;
     }
+
+    void OnGUI()
+    {
+
+        GUI.TextField(new Rect(Screen.width - barWidth - 20,
+                                Screen.height - barHeight * 3 - 50,
+                                30,
+                                20),
+                                amo.ToString());
+        GUI.TextField(new Rect(Screen.width - barWidth + 10,
+                                Screen.height - barHeight * 3 - 50,
+                                20,
+                                20),
+                                magazin.ToString());
+        GUI.TextField(new Rect(Screen.width - barWidth - 20,
+                                Screen.height - barHeight * 3 - 70,
+                                30,
+                                20),
+                                amo.ToString());
+
+
+
+    }
+
 }
