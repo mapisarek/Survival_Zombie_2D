@@ -30,7 +30,7 @@ public class MobSpawner : MonoBehaviour
 
     private void SpawnAnimals()
     {
-        Vector2 pos = new Vector2(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
+        Vector3 pos = new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax), -1);
         GameObject animalPrefab = animals[Random.Range(0, animals.Length)];
         Instantiate(animalPrefab, pos, transform.rotation);
         //GameObject newGoods = (GameObject)Instantiate(goodsPrefab, pos)
