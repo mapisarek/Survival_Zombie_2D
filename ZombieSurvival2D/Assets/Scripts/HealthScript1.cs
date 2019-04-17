@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class HealthScript1 : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int hp = 1;
+    public bool isEnemy = true;
+
+
     void Start()
     {
         
