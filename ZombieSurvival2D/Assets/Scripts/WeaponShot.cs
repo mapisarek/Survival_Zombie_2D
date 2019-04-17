@@ -8,13 +8,18 @@ public class WeaponShot : MonoBehaviour
     private Rigidbody2D rig;
     private Vector2 spherePosition;
     public GameObject prefab;
-    private float canShot = 0.0f;
-    private float canAmo = 0.0f;
-    public int amo = 300;
-    public int magazin = 3;
-    private int rel = 0;
+    public float rel_time = 3.0f;
+    public float fast_shot = 0.01f;
+    public int mag_cap = 300;
+    public int num_mag = 5;
     public int damage = 1;
     public bool isEnemyShot = false;
+
+    private float canShot = 0.0f;
+    private float canAmo = 0.0f;
+    private int amo = 300;
+    private int magazin = 3;
+    private int rel = 0;
     private float barWidth;
     private float barHeight;
     private int CanUse = 0;
@@ -58,7 +63,7 @@ public class WeaponShot : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.R))
         {
-            if (magazin > 0 && amo >= 0 && amo < 300)
+            if (magazin > 0 && amo >= 0 && amo < mag_cap)
             {
                 amo = 0;
                 if (rel == 0)
@@ -67,7 +72,7 @@ public class WeaponShot : MonoBehaviour
                     magazin -= 1;
 
                 }
-                canAmo = 2f;
+                canAmo = rel_time;
 
 
 
@@ -90,7 +95,7 @@ public class WeaponShot : MonoBehaviour
         }
         if (amo == 0 && rel == 1 && canAmo <= 0.0f)
         {
-            amo = 300;
+            amo = mag_cap;
             rel = 0;
         }
 
