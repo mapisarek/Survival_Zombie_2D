@@ -7,15 +7,12 @@ public class HealthScript1 : MonoBehaviour
     public int hp = 1;
     public bool isEnemy = true;
 
-
-    void Start()
+    public void Damage(int damageCount)
     {
-        
+        hp -= damageCount;
+
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }
