@@ -88,7 +88,11 @@ public class WeaponShot : MonoBehaviour
             canAmo -= Time.deltaTime;
 
         }
-
+        if (amo == 0 && rel == 1 && canAmo <= 0.0f)
+        {
+            amo = 300;
+            rel = 0;
+        }
 
 
 
