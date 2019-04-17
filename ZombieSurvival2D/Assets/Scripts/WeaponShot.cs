@@ -68,7 +68,12 @@ public class WeaponShot : MonoBehaviour
 
         var dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position) * balans;
 
+        GameObject g = (GameObject)Instantiate(prefab, transform.position + dir / 30, Quaternion.Euler(0, 0, angel));
+        Destroy(g, 1);
+        g.GetComponent<Rigidbody2D>().gravityScale = 0;
+        g.GetComponent<Rigidbody2D>().AddForce(dir * 50);
 
+        //
     }
 
 
