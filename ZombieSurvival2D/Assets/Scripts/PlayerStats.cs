@@ -148,17 +148,7 @@ public class PlayerStats : MonoBehaviour
     }
 
 
-    public void Damage(float damageCount)
-    {
-        float redukcja = 1 - currentArmour / 100;
-        currentHealth -= damageCount * redukcja;
 
-        if (currentHealth <= 0)
-        {
-            // Dead!
-            Destroy(gameObject);
-        }
-    }
     public void OnTriggerEnter2D(Collider2D otherCollider)
     {
         // Is this a shot?
@@ -173,6 +163,17 @@ public class PlayerStats : MonoBehaviour
                 // Destroy the shot
                 Destroy(shot.gameObject); // Remember to always target the game object, otherwise you will just remove the script
             }
+        }
+    }
+    public void Damage(float damageCount)
+    {
+        float redukcja = 1 - currentArmour / 100;
+        currentHealth -= damageCount * redukcja;
+
+        if (currentHealth <= 0)
+        {
+            // Dead!
+            Destroy(gameObject);
         }
     }
 
