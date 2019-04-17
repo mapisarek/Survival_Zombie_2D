@@ -60,7 +60,13 @@ public class WeaponShot : MonoBehaviour
         var offset = new Vector2(moues.x - screenPoint.x, moues.y - screenPoint.y);
         var angel = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
 
+        var myszx = Input.mousePosition.x;
+        var myszy = Input.mousePosition.y;
+        var kamerax = Camera.main.WorldToScreenPoint(transform.position).x;
+        var kameray = Camera.main.WorldToScreenPoint(transform.position).y;
+        float balans = 1000 / Mathf.Sqrt(((myszx - kamerax) * (myszx - kamerax)) + ((myszy - kameray) * (myszy - kameray)));
 
+        var dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position) * balans;
 
 
     }
