@@ -17,6 +17,7 @@ public class WeaponShot : MonoBehaviour
     public bool isEnemyShot = false;
     private float barWidth;
     private float barHeight;
+    private int CanUse = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,10 @@ public class WeaponShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var moues = Input.mousePosition;
+        //var screenPoint = Camera.main.ViewportToScreenPoint(transform.localPosition);
+        var screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        var offset = new Vector2(moues.x - screenPoint.x, moues.y - screenPoint.y);
+
     }
 }
