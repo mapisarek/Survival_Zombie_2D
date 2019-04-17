@@ -48,6 +48,16 @@ public class WeaponShot : MonoBehaviour
         }
 
 
+
+
+
+
+
+        if (canShot > 0.0f)
+        {
+            canShot -= Time.deltaTime;
+
+        }
     }
 
 
