@@ -124,5 +124,9 @@ public class WeaponShot : MonoBehaviour
         //
     }
 
-
+    void Awake()
+    {
+        barHeight = Screen.height * 0.02f;
+        barWidth = barHeight * 10.0f;
+    }
 }
