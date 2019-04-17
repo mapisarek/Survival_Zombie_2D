@@ -17,6 +17,22 @@ public class HealthScript1 : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    void OnTriggerEnter2D(Collider2D otherCollider)
+    {
+        // Is this a shot?
 
-   
+        Attack shot = otherCollider.gameObject.GetComponent<Attack>();
+        if (shot != null)
+        {
+            // Avoid friendly fire
+            if (shot.isEnemyShot != isEnemy)
+            {
+                Damage(shot.damage);
+
+                // Destroy the shot
+            }
+        }
+    }
+
+
 }
