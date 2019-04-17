@@ -35,6 +35,12 @@ public class WeaponShot : MonoBehaviour
         Quaternion a = transform.rotation = Quaternion.Euler(0, 0, angel);
 
 
+
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            CanUse = 0;
+
+        }
         if (Input.GetKey(KeyCode.Alpha2))
         {
             CanUse = 1;
