@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeSpawner : MonoBehaviour
+public class RockSpawner : MonoBehaviour
 {
 
     public float radius = 1;
@@ -10,7 +10,7 @@ public class TreeSpawner : MonoBehaviour
     public int rejectionSamples = 30;
 
 
-    public GameObject tree;
+    public GameObject Rock;
     List<Vector2> points;
 
 
@@ -29,19 +29,19 @@ public class TreeSpawner : MonoBehaviour
         foreach (Vector3 point in points)
         {
 
-            GameObject treeSpawn = Instantiate(tree, point, Quaternion.identity);
-            treeSpawn.transform.SetParent(this.transform);
+            GameObject RockSpawn = Instantiate(Rock, point, Quaternion.identity);
+            RockSpawn.transform.SetParent(this.transform);
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
