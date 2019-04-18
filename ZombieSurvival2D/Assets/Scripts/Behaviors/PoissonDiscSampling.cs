@@ -19,7 +19,24 @@ public class NewBehaviourScript : MonoBehaviour
             Vector2 spawnCentre = spawnPoints[spawnIndex];
             bool candidateAccepted = false;
 
-            
+            for (int i = 0; i < numSamplesBeforeRejection; i++)
+            {
+                float angle = Random.value * Mathf.PI * 2;
+                Vector2 dir = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle));
+                Vector2 candidate = spawnCentre + dir * Random.Range(radius, 2 * radius);
+                if (IsValid(candidate, sampleRegionSize, cellSize, radius, points, grid))
+                {
+                    points.Add(candidate);
+                    spawnPoints.Add(candidate);
+                    grid[(int)(candidate.x / cellSize), (int)(candidate.y / cellSize)] = points.Count;
+                    candidateAccepted = true;
+                    break;
+                }
+            }
+            if (!candidateAccepted)
+            {
+                spawnPoints.RemoveAt(spawnIndex);
+            }
 
         }
 
