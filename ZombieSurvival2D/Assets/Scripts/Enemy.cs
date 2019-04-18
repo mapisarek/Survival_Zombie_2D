@@ -20,6 +20,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    protected void Update()
+    {
+        FollowTarget();
+    }
+
     private void FollowTarget()
     {
         if(target != null)
