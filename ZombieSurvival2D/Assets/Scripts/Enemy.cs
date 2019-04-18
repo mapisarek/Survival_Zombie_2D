@@ -19,4 +19,12 @@ public class Enemy : MonoBehaviour
             target = value;
         }
     }
+
+    private void FollowTarget()
+    {
+        if(target != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target.position, 4 * Time.deltaTime);
+        }
+    }
 }
