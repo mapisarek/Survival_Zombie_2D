@@ -13,6 +13,26 @@ public class TreeSpawner : MonoBehaviour
     public GameObject tree;
     List<Vector2> points;
 
+
+    void OnValidate()
+    {
+        points = PoissonDiscSampling.GeneratePoints(radius, regionSize, rejectionSamples);
+    }
+
+    void Awake()
+    {
+        TreeSpawer();
+    }
+
+    void TreeSpawer()
+    {
+        foreach (Vector2 point in points)
+        {
+
+            GameObject treeSpawn = Instantiate(tree, point, Quaternion.identity);
+
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
