@@ -11,6 +11,13 @@ public class TreeSpawner : MonoBehaviour
 
 
     public GameObject tree;
+    public GameObject tree2;
+    public GameObject tree3;
+    public GameObject tree4;
+    public GameObject tree5;
+    public GameObject tree6;
+
+
     List<Vector2> points;
 
 
@@ -28,9 +35,37 @@ public class TreeSpawner : MonoBehaviour
     {
         foreach (Vector3 point in points)
         {
-
+           int value= Random.Range(0,5);
+            if (value==0)
+            {
             GameObject treeSpawn = Instantiate(tree, point, Quaternion.identity);
             treeSpawn.transform.SetParent(this.transform);
+            }
+            if (value==1)
+            {
+                GameObject treeSpawn = Instantiate(tree2, point, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+            }
+            if (value==2)
+            {
+                GameObject treeSpawn = Instantiate(tree3, point, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+            }
+            if (value==3)
+            {
+                GameObject treeSpawn = Instantiate(tree4, point, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+            }
+            if (value==4)
+            {
+                GameObject treeSpawn = Instantiate(tree5, point, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+            }
+            if (value==5)
+            {
+                GameObject treeSpawn = Instantiate(tree6, point, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+            }
         }
     }
     // Start is called before the first frame update
