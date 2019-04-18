@@ -15,7 +15,7 @@ public class Range : MonoBehaviour
     {
        if(collision.tag == "Player")
         {
-
+            parent.Target = collision.transform;
         } 
     }
 

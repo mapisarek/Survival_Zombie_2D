@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    protected void Update()
+    public void Update()
     {
         FollowTarget();
     }
@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     {
         if(target != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, 4 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, 2f * Time.deltaTime);
         }
     }
 }
