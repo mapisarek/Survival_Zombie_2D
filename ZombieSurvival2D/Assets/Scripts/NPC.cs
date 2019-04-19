@@ -11,11 +11,11 @@ public class NPC : MonoBehaviour
 
     void Update()
     {
-        
+        Movement();
     }
 
     public void Movement()
     {
-        
+        transform.Translate();
     }
 }
