@@ -7,10 +7,11 @@ public abstract class Character : MonoBehaviour
     [SerializeField]
     private float speed;
     protected Vector2 direction;
+    private Animator animator;
 
      void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     protected virtual void Update()
@@ -21,5 +22,11 @@ public abstract class Character : MonoBehaviour
     public void Movement()
     {
         transform.Translate(direction * speed * Time.deltaTime);
+    }
+
+    public void AnimationMovement(Vector2 direction)
+    {
+        animator.SetFloat("x", direction.x);
+        animator.SetFloat("y", direction.y);
     }
 }
