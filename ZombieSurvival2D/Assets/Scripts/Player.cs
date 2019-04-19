@@ -14,7 +14,8 @@ public class Player : Character
 
     protected override void Update()
     {
-
+        InputKeys();
+        base.Update();
     }
 
     private void InputKeys()
