@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : Character
+public class Player : Character
 {
     [SerializeField]
     private float speed;
@@ -12,12 +12,11 @@ public class NPC : Character
         
     }
 
-    void Update()
+    protected override void Update()
     {
-        Movement();
+
     }
 
-    /*
     private void InputKeys()
     {
         direction = Vector2.zero;
@@ -39,5 +38,5 @@ public class NPC : Character
             direction += Vector2.left;
         }
     }
-    */
+    
 }
