@@ -8,37 +8,73 @@ public abstract class Character : MonoBehaviour
     private float speed;
     protected Vector2 direction;
     private Animator animator;
+    private Rigidbody2D rigidbody2D;
+    protected bool IsAttacking = false;
+
+    public bool IsMoving
+    {
+        get
+        {
+            return direction.x != 0 || direction.y != 0;
+        }
+    }
 
      void Start()
     {
         animator = GetComponent<Animator>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     protected virtual void Update()
     {
+        HandleLayer();
+    }
+
+    private void FixedUpdate()
+    {
+        HandleLayer();
         Movement();
     }
 
+
     public void Movement()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        rigidbody2D.velocity = direction.normalizedds * speed;
+        
+    }
 
-        if(direction.x != 0 || direction.y != 0)
+    public void HandleLayer()
+    {
+        if (IsMoving)
         {
-
             AnimationMovement(direction);
+        }
+        else if (isAttacking)
+        {
+            ActivateLayer("AttackLayer");
         }
         else
         {
-            animator.SetLayerWeight(1, 0);
+            ActivateLayer("IdleLayer");
         }
     }
 
     public void AnimationMovement(Vector2 direction)
     {
-        animator.SetLayerWeight(1,1);
+        ActivateLayer("WalkLayer");
 
         animator.SetFloat("x", direction.x);
         animator.SetFloat("y", direction.y);
+    }
+
+    public void ActivateLayer(string layerName)
+    {
+        for (int i = 0; i < animator.layerCount; i++)
+        {
+            animator.SetLayerWeight(i, 0);
+        }
+
+        animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
+       
     }
 }
