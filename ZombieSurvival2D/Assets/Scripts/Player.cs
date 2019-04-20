@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class Player : Character
 {
+    [SerializeField]
+    private Statistics health;
+    [SerializeField]
+    private float healthValue;
+    [SerializeField]
+    private float maxHealth;
+
     protected override void Start()
     {
+        health.Initialize(healthValue,maxHealth);
         base.Start();
     }
 
     protected override void Update()
     {
         InputKeys();
+        health.CurrentValue = 100;
         base.Update();
     }
 
