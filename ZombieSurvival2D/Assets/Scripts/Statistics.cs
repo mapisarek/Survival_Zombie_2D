@@ -8,6 +8,8 @@ public class Statistics : MonoBehaviour
     private Image content;
     private float currentFill;
     public float InitMaxValue { get; set; }
+    private float currentValue;
+
 
     public float CurrentValue
     {
@@ -18,14 +20,30 @@ public class Statistics : MonoBehaviour
 
         set
         {
-            currentValue = value;
+            if (value > InitMaxValue)
+            {
+                currentValue = InitMaxValue;
+            }
+            else if(value < 0)
+            {
+                currentValue = 0;
+            }
+            else
+            {
+                currentValue = value;
+            }
         }
     }
 
-    private float currentValue;
-
+    
     private void Start()
     {
         content = GetComponent<Image>();
+    }
+    
+    public void Initialize(float currentValue, float maxValue)
+    {
+        InitMaxValue = maxValue;
+        CurrentValue = currentValue;
     }
 }
