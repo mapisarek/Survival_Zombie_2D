@@ -19,7 +19,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-     void Start()
+    protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -39,7 +39,7 @@ public abstract class Character : MonoBehaviour
 
     public void Movement()
     {
-        rigidbody2D.velocity = direction.normalizedds * speed;
+        rigidbody2D.velocity = direction.normalized * speed;
         
     }
 
@@ -49,7 +49,7 @@ public abstract class Character : MonoBehaviour
         {
             AnimationMovement(direction);
         }
-        else if (isAttacking)
+        else if (IsAttacking)
         {
             ActivateLayer("AttackLayer");
         }

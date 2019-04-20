@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class Player : Character
 {
-    [SerializeField]
-    private float speed;
-
-    void Start()
+    protected override void Start()
     {
-        
+        base.Start();
     }
 
     protected override void Update()
@@ -36,7 +33,7 @@ public class Player : Character
         }
         if (Input.GetKey(KeyCode.D))
         {
-            direction += Vector2.left;
+            direction += Vector2.right;
         }
     }
     
