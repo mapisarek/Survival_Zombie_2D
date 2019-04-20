@@ -11,9 +11,26 @@ public class Player : Character
     [SerializeField]
     private float maxHealth;
 
+    [SerializeField]
+    private Statistics stamina;
+    [SerializeField]
+    private float staminaValue;
+    [SerializeField]
+    private float maxStamina;
+
+
+    [SerializeField]
+    private Statistics armor;
+    [SerializeField]
+    private float armorValue;
+    [SerializeField]
+    private float maxArmor;
+
     protected override void Start()
     {
         health.Initialize(healthValue,maxHealth);
+        stamina.Initialize(staminaValue, maxStamina);
+        armor.Initialize(armorValue, maxArmor);
         base.Start();
     }
 
