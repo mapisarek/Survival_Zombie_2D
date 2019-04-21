@@ -33,4 +33,9 @@ public class Enemy : NPC
             transform.position = Vector3.MoveTowards(transform.position, target.position, 2f * Time.deltaTime);
         }
     }
+
+    public override void TakeDamage(float damage)
+    {
+        base.TakeDamage(damage);
+    }
 }
