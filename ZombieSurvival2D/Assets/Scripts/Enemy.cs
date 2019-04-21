@@ -32,13 +32,19 @@ public class Enemy : NPC
     {
         if(target != null)
         {
-            healthgroup
+            direction = (target.transform.position - transform.position);
+            healthGroup.alpha = 1;
             transform.position = Vector3.MoveTowards(transform.position, target.position, 2f * Time.deltaTime);
+        }
+        else
+        {
+            healthGroup.alpha = 0;
         }
     }
 
     public override void TakeDamage(float damage)
     {
+        direction = Vector2.zero;
         base.TakeDamage(damage);
     }
 }
