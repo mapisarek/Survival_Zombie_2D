@@ -5,6 +5,8 @@ using UnityEngine;
 public class Enemy : NPC
 {
 
+    [SerializeField]
+    private CanvasGroup healthGroup;
     private Transform target;
     
 
@@ -30,6 +32,7 @@ public class Enemy : NPC
     {
         if(target != null)
         {
+            healthgroup
             transform.position = Vector3.MoveTowards(transform.position, target.position, 2f * Time.deltaTime);
         }
     }
