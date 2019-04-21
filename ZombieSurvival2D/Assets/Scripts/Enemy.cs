@@ -8,6 +8,7 @@ public class Enemy : NPC
     [SerializeField]
     private CanvasGroup healthGroup;
     private Transform target;
+    private IState currentState;
     
 
     public Transform Target
@@ -46,5 +47,13 @@ public class Enemy : NPC
     {
         direction = Vector2.zero;
         base.TakeDamage(damage);
+    }
+
+    public void ChangeState(IState newState)
+    {
+        if(currentState != null)
+        {
+            currentState.Exit();
+        }
     }
 }
