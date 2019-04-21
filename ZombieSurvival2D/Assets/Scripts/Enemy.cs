@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : NPC
 {
 
     private Transform target;
+    
 
     public Transform Target
     {
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void Update()
+    protected override void Update()
     {
         FollowTarget();
     }

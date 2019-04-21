@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 public abstract class Character : MonoBehaviour
 {
     [SerializeField]
@@ -77,4 +79,5 @@ public abstract class Character : MonoBehaviour
         animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
        
     }
+    
 }
