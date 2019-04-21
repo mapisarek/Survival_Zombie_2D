@@ -19,6 +19,9 @@ class IdleState : IState
 
     public void Update()
     {
-
+        if (parent.Target != null)
+        {
+            parent.ChangeState(new FollowState());
+        }
     }
 }

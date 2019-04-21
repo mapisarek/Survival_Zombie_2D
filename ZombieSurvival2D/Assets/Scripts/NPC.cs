@@ -14,7 +14,6 @@ public class NPC : Character
 
     protected override void Update()
     {
-        Movement();
     }
 
 }

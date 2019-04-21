@@ -26,26 +26,19 @@ public class Enemy : NPC
 
     protected override void Update()
     {
-        FollowTarget();
+        currentState.Update();
+        base.Update();
     }
 
-    private void FollowTarget()
+    protected void Awake()
     {
-        if(target != null)
-        {
-            direction = (target.transform.position - transform.position);
-            healthGroup.alpha = 1;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, 2f * Time.deltaTime);
-        }
-        else
-        {
-            healthGroup.alpha = 0;
-        }
+        ChangeState(new IdleState());
     }
+
 
     public override void TakeDamage(float damage)
     {
-        direction = Vector2.zero;
+       // direction = Vector2.zero;
         base.TakeDamage(damage);
     }
 
@@ -55,5 +48,10 @@ public class Enemy : NPC
         {
             currentState.Exit();
         }
+        currentState = newState;
+
+        currentState.Enter(this);
     }
+
+
 }

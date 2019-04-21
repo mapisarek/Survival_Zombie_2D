@@ -10,7 +10,7 @@ public abstract class Character : MonoBehaviour
     private float speed;
     [SerializeField]
     protected Statistics health;
-    protected Vector2 direction;
+    private Vector2 direction;
     private Animator animator;
     private Rigidbody2D rigidbody2D;
     protected bool IsAttacking = false;
@@ -20,6 +20,32 @@ public abstract class Character : MonoBehaviour
         get
         {
             return direction.x != 0 || direction.y != 0;
+        }
+    }
+
+    public Vector2 Direction
+    {
+        get
+        {
+            return direction;
+        }
+
+        set
+        {
+            direction = value;
+        }
+    }
+
+    public float Speed
+    {
+        get
+        {
+            return speed;
+        }
+
+        set
+        {
+            speed = value;
         }
     }
 
