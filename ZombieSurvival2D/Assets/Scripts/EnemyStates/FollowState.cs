@@ -14,12 +14,19 @@ class FollowState : IState
 
     public void Exit()
     {
-
+        parent.Direction = Vector2.zero;
     }
 
     public void Update()
     {
-        parent.Direction = (parent.Target.transform.position - parent.Target.transform.position);
-        parent.transform.position = Vector3.MoveTowards(parent.transform.position, parent.Target.position, parent.Speed * Time.deltaTime);
+        if(parent.Target != null)
+        {
+            parent.Direction = (parent.Target.transform.position - parent.Target.transform.position);
+            parent.transform.position = Vector3.MoveTowards(parent.transform.position, parent.Target.position, parent.Speed * Time.deltaTime);
+        }
+        else
+        {
+            parent.ChangeState(new IdleState());
+        }
     }
 }
