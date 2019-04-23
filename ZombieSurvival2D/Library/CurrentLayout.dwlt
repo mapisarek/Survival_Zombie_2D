@@ -111,10 +111,10 @@ MonoBehaviour:
     y: 30
     width: 1366
     height: 635
-  m_MinSize: {x: 683, y: 498}
+  m_MinSize: {x: 681, y: 498}
   m_MaxSize: {x: 14004, y: 14048}
   vertical: 0
-  controlID: 63
+  controlID: 66
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -136,10 +136,10 @@ MonoBehaviour:
     y: 0
     width: 1060
     height: 635
-  m_MinSize: {x: 406, y: 498}
+  m_MinSize: {x: 404, y: 498}
   m_MaxSize: {x: 10002, y: 14048}
   vertical: 1
-  controlID: 64
+  controlID: 79
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -161,10 +161,10 @@ MonoBehaviour:
     y: 0
     width: 1060
     height: 354
-  m_MinSize: {x: 406, y: 224}
-  m_MaxSize: {x: 8006, y: 4024}
+  m_MinSize: {x: 404, y: 224}
+  m_MaxSize: {x: 8004, y: 4024}
   vertical: 0
-  controlID: 112
+  controlID: 80
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -184,8 +184,8 @@ MonoBehaviour:
     y: 0
     width: 346
     height: 354
-  m_MinSize: {x: 202, y: 224}
-  m_MaxSize: {x: 4002, y: 4024}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -327,23 +327,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1ed7ffff
-      m_LastClickedID: -10466
-      m_ExpandedIDs: 1ecdffff38cdffffecceffff08cfffff28cfffff48cfffff8ccfffff1ed7ffff6cd7ffff86d7ffff42d9ffff60d9ffff80d9ffffa6d9fffff2d9ffff60daffff0c4d00006c4d00007c4f00001c50000030500000d86c00008e6d0000ee6d0000906e0000746f00009e700000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 7edcffff98dcffffa4dcffffbcdcffffdadcfffff6dcffff34ddffff30deffff80deffff9adeffffa6deffffaadeffffc2deffffe0defffffcdeffff3adfffff88dfffffa2dfffffaedfffffb2dfffffcadfffffe8dfffff04e0ffff42e0ffff90e0ffffaae0ffffb6e0ffffbae0ffffd2e0fffff0e0ffff0ce1ffff4ae1ffff96e1ffffb0e1ffffb2e1ffffcae1ffffe8e1ffff04e2ffff42e2ffff8ae2ffffa4e2ffffbae2ffffd8e2fffff4e2ffff32e3ffff70e3ffff8ae3ffff7ee5ffff44e6ffff5ee6ffff6ae6ffff82e6ffffa0e6ffffbce6fffffae6ffff52e7ffff6ce7ffff20e9ffff3ce9ffff5ce9ffff7ce9ffffc0e9ffffd4fbffff50c3000062c30000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Bron
-        m_OriginalName: Bron
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -14356
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -384,9 +384,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 57.503494, y: 40.22948, z: 18.123322}
+    m_Target: {x: 5.777892, y: -0.08658898, z: 0}
     speed: 2
-    m_Value: {x: 57.503494, y: 40.22948, z: 18.123322}
+    m_Value: {x: 5.777892, y: -0.08658898, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -418,9 +418,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0.11340505, y: 0.22507834, z: 0.96735877, w: -0.026386194}
   m_Size:
-    m_Target: 111.22544
+    m_Target: 22
     speed: 2
-    m_Value: 111.22544
+    m_Value: 22
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -614,34 +614,34 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Phenix\Desktop\Nowy folder\ZombieSurvival2D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 28}
-    m_SelectedIDs: 3c400000
-    m_LastClickedID: 16444
-    m_ExpandedIDs: 000000003c3c0000363d00002e3f000056400000
+    m_SelectedIDs: fa280000
+    m_LastClickedID: 10490
+    m_ExpandedIDs: 0000000086280000c6290000042c00003e2d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: UI
-      m_OriginalName: UI
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 15584
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -655,7 +655,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 
+    m_ExpandedIDs: 0000000086280000c6290000042c00003e2d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
