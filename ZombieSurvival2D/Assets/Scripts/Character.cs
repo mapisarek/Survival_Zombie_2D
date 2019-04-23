@@ -10,12 +10,12 @@ public abstract class Character : MonoBehaviour
     private float speed;
     [SerializeField]
     protected Statistics health;
-    private Vector2 direction;
+    protected Vector2 direction;
     private Animator animator;
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
     protected bool IsAttacking = false;
 
-    public bool IsMoving
+    public bool IsMoving 
     {
         get
         {

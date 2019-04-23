@@ -24,6 +24,11 @@ public class Enemy : NPC
         }
     }
 
+    protected override void Start()
+    {
+        base.Start();
+    }
+
     protected override void Update()
     {
         currentState.Update();

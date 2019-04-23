@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class NPC : Character
 {
-    [SerializeField]
-    private float speed;
+    protected Enemy parent;
 
     protected override void Start()
     {
@@ -14,6 +13,22 @@ public class NPC : Character
 
     protected override void Update()
     {
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            parent.Target = collision.transform;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            parent.Target = null;
+        }
     }
 
 }

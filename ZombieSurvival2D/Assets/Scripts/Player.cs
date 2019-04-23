@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Player : Character
 {
-    [SerializeField]
-    private Statistics health;
+
     [SerializeField]
     private float healthValue;
     [SerializeField]
