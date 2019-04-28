@@ -55,18 +55,15 @@ public class World : MonoBehaviour
 
 
     List<Vector2> points;
-    public float radius = 1;
-    public Vector2 regionSize = Vector2.one;
-    public int rejectionSamples = 30;
+
 
 
     public GameObject tree;
     public GameObject tree2;
     public GameObject tree3;
     public GameObject tree4;
-    public GameObject tree5;
-    public GameObject tree6;
-
+    public GameObject autumn_tree;
+   
     public GameObject stone;
     // Use this for initialization
 
@@ -86,12 +83,9 @@ public class World : MonoBehaviour
 
 
         noise = new Noise(seed.GetHashCode(), frequency, amplitude, lecunarity, presistance, octawes);
-        //TreeSpawer();
+ 
     }
-    void OnValidate()
-    {
-        points = PoissonDiscSampling.GeneratePoints(radius, regionSize, rejectionSamples);
-    }
+ 
 
     void Start()
     {
@@ -121,11 +115,6 @@ public class World : MonoBehaviour
 
                 tiles[i, j] = MakeTileAtHeight(noiseValues[i, j]);
                 TreeSpawer(noiseValues[i, j], i, j);
-
-
-
-                //GameObject treeSpawn = Instantiate(tree, value, Quaternion.identity);
-
 
             }
         }
@@ -176,7 +165,7 @@ public class World : MonoBehaviour
         if (i1 > tiles.GetLength(0) && i2 > tiles.GetLength(1))
             return;
 
-        //Get size of segment
+        
         int sizeX, sizeY;
 
         if (tiles.GetLength(0) - i1 > 100)
@@ -246,7 +235,7 @@ public class World : MonoBehaviour
         var pozycja = new Vector2(x, y);
         int value = Random.Range(0, 10);
         int R = Random.Range(0, 5);
-        if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value >= 7)
+        if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value >= 8)
         {
 
             if (R == 0)
@@ -276,7 +265,7 @@ public class World : MonoBehaviour
         }
         if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value == 9)
         {
-            GameObject treegrass2Spawn = Instantiate(tree5, pozycja, Quaternion.identity);
+            GameObject treegrass2Spawn = Instantiate(autumn_tree, pozycja, Quaternion.identity);
             treegrass2Spawn.transform.SetParent(this.transform);
 
         }
