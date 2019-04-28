@@ -77,7 +77,7 @@ public class World : MonoBehaviour
 
         if (randomSeed == true)
         {
-            int value = Random.Range(-10000, 10000);
+            int value = Random.Range(0, 10000);
             seed = value.ToString();
         }
 
