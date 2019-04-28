@@ -272,12 +272,13 @@ public class World : MonoBehaviour
                 treeSpawn.transform.SetParent(this.transform);
 
             }
-            if (R == 4)
-            {
-                GameObject treeSpawn = Instantiate(tree5, pozycja, Quaternion.identity);
-                treeSpawn.transform.SetParent(this.transform);
+         
+        }
+        if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value == 9)
+        {
+            GameObject treegrass2Spawn = Instantiate(tree5, pozycja, Quaternion.identity);
+            treegrass2Spawn.transform.SetParent(this.transform);
 
-            }
         }
 
         if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 9)
