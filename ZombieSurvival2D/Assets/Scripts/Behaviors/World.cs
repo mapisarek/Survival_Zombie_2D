@@ -203,4 +203,24 @@ public class World : MonoBehaviour {
 
 		return tiles [x, y];
 	}
-}
+
+    void TreeSpawer(float wysokosc, int x, int y)
+    {
+       
+        var pozycja = new Vector2(x, y);
+        int value = Random.Range(0, 100);
+        int R = Random.Range(0, 5);
+        if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value <= 5)
+        {
+
+            
+            }
+
+
+        }
+
+
+
+
+
+    }
