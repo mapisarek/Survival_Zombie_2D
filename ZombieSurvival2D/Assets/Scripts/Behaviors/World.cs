@@ -66,6 +66,8 @@ public class World : MonoBehaviour
     public GameObject tree4;
     public GameObject tree5;
     public GameObject tree6;
+
+    public GameObject stone;
     // Use this for initialization
 
 
@@ -128,7 +130,7 @@ public class World : MonoBehaviour
             }
         }
     }
-    
+
     Tile MakeTileAtHeight(float currentHeight)
     {
         if (currentHeight <= seaLevel)
@@ -242,9 +244,9 @@ public class World : MonoBehaviour
     void TreeSpawer(float wysokosc, int x, int y)
     {
         var pozycja = new Vector2(x, y);
-        int value = Random.Range(0, 100);
+        int value = Random.Range(0, 10);
         int R = Random.Range(0, 5);
-        if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value <= 5)
+        if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value >= 7)
         {
 
             if (R == 0)
@@ -276,11 +278,18 @@ public class World : MonoBehaviour
                 treeSpawn.transform.SetParent(this.transform);
 
             }
-
-
         }
+
+        if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 9)
+         {
+                GameObject stoneSpawn = Instantiate(stone, pozycja, Quaternion.identity);
+                stoneSpawn.transform.SetParent(this.transform);
+
+         }
+
+        
+
+
+
     }
-
-
-
 }
