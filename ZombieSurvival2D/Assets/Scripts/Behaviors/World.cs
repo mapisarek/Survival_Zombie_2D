@@ -49,6 +49,14 @@ public class World : MonoBehaviour {
     public float snowEndHeight;
 
 
+
+    public GameObject tree;
+    public GameObject tree2;
+    public GameObject tree3;
+    public GameObject tree4;
+    public GameObject tree5;
+    public GameObject tree6;
+
     // Use this for initialization
     void Awake() {
 
