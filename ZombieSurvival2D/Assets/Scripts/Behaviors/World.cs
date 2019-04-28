@@ -279,8 +279,13 @@ public class World : MonoBehaviour
             treegrass2Spawn.transform.SetParent(this.transform);
 
         }
-        
-        if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 90)
+            if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value == 5)
+            {
+                GameObject stonespawn = Instantiate(stone, pozycja, Quaternion.identity);
+                stonespawn.transform.SetParent(this.transform);
+
+            }
+            if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 90)
          {
             if (R == 0)
             {
