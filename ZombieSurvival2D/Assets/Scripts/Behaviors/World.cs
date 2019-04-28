@@ -65,6 +65,10 @@ public class World : MonoBehaviour
     public GameObject autumn_tree;
    
     public GameObject stone;
+    public GameObject resource_stone;
+    public GameObject resource_stone2;
+    
+
     // Use this for initialization
 
 
@@ -272,10 +276,9 @@ public class World : MonoBehaviour
 
         if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 9)
          {
-                GameObject stoneSpawn = Instantiate(stone, pozycja, Quaternion.identity);
-                stoneSpawn.transform.SetParent(this.transform);
+            
 
-         }
+        }
 
         
 
