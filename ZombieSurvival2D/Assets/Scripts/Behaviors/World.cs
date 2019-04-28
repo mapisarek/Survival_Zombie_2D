@@ -63,11 +63,11 @@ public class World : MonoBehaviour
     public GameObject tree3;
     public GameObject tree4;
     public GameObject autumn_tree;
-   
+
     public GameObject stone;
     public GameObject resource_stone;
     public GameObject resource_stone2;
-    
+
 
     // Use this for initialization
 
@@ -87,9 +87,9 @@ public class World : MonoBehaviour
 
 
         noise = new Noise(seed.GetHashCode(), frequency, amplitude, lecunarity, presistance, octawes);
- 
+
     }
- 
+
 
     void Start()
     {
@@ -169,7 +169,7 @@ public class World : MonoBehaviour
         if (i1 > tiles.GetLength(0) && i2 > tiles.GetLength(1))
             return;
 
-        
+
         int sizeX, sizeY;
 
         if (tiles.GetLength(0) - i1 > 100)
@@ -273,37 +273,38 @@ public class World : MonoBehaviour
 
 
             }
-            if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value >= 9)
-        {
-            GameObject treegrass2Spawn = Instantiate(autumn_tree, pozycja, Quaternion.identity);
-            treegrass2Spawn.transform.SetParent(this.transform);
+            if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value >= 90)
+            {
+                GameObject treegrass2Spawn = Instantiate(autumn_tree, pozycja, Quaternion.identity);
+                treegrass2Spawn.transform.SetParent(this.transform);
 
-        }
-            if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value == 5)
+            }
+            if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value == 50)
             {
                 GameObject stonespawn = Instantiate(stone, pozycja, Quaternion.identity);
                 stonespawn.transform.SetParent(this.transform);
 
             }
             if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 90)
-         {
-            if (R == 0)
             {
-                GameObject stoneSpawn = Instantiate(resource_stone, pozycja, Quaternion.identity);
-                stoneSpawn.transform.SetParent(this.transform);
-            }
-            if (R == 1)
-            {
-                GameObject stoneSpawn = Instantiate(resource_stone2, pozycja, Quaternion.identity);
-                stoneSpawn.transform.SetParent(this.transform);
+                if (R == 0)
+                {
+                    GameObject stoneSpawn = Instantiate(resource_stone, pozycja, Quaternion.identity);
+                    stoneSpawn.transform.SetParent(this.transform);
+                }
+                if (R == 1)
+                {
+                    GameObject stoneSpawn = Instantiate(resource_stone2, pozycja, Quaternion.identity);
+                    stoneSpawn.transform.SetParent(this.transform);
+
+                }
 
             }
+
+
+
+
 
         }
-
-        
-
-
-
     }
 }
