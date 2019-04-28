@@ -49,10 +49,16 @@ public class World : MonoBehaviour
     public float snowStartHeight;
     public float snowEndHeight;
 
+
+
+
+
+
     List<Vector2> points;
     public float radius = 1;
     public Vector2 regionSize = Vector2.one;
     public int rejectionSamples = 30;
+
 
     public GameObject tree;
     public GameObject tree2;
@@ -60,8 +66,9 @@ public class World : MonoBehaviour
     public GameObject tree4;
     public GameObject tree5;
     public GameObject tree6;
-
     // Use this for initialization
+
+
     void Awake()
     {
 
@@ -77,7 +84,11 @@ public class World : MonoBehaviour
 
 
         noise = new Noise(seed.GetHashCode(), frequency, amplitude, lecunarity, presistance, octawes);
-
+        //TreeSpawer();
+    }
+    void OnValidate()
+    {
+        points = PoissonDiscSampling.GeneratePoints(radius, regionSize, rejectionSamples);
     }
 
     void Start()
@@ -99,6 +110,7 @@ public class World : MonoBehaviour
         tiles = new Tile[width, height];
         float[,] noiseValues = noise.GetNosiseValues(width, height);
 
+        Debug.Log(noiseValues[10, 10]);
 
         for (int i = 0; i < width; i++)
         {
@@ -106,11 +118,17 @@ public class World : MonoBehaviour
             {
 
                 tiles[i, j] = MakeTileAtHeight(noiseValues[i, j]);
+                TreeSpawer(noiseValues[i, j], i, j);
+
+
+
+                //GameObject treeSpawn = Instantiate(tree, value, Quaternion.identity);
+
 
             }
         }
     }
-
+    
     Tile MakeTileAtHeight(float currentHeight)
     {
         if (currentHeight <= seaLevel)
@@ -223,7 +241,6 @@ public class World : MonoBehaviour
 
     void TreeSpawer(float wysokosc, int x, int y)
     {
-
         var pozycja = new Vector2(x, y);
         int value = Random.Range(0, 100);
         int R = Random.Range(0, 5);
@@ -262,6 +279,8 @@ public class World : MonoBehaviour
 
 
         }
-
     }
+
+
+
 }
