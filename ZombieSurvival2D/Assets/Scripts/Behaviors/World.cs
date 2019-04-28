@@ -237,9 +237,9 @@ public class World : MonoBehaviour
     void TreeSpawer(float wysokosc, int x, int y)
     {
         var pozycja = new Vector2(x, y);
-        int value = Random.Range(0, 10);
+        int value = Random.Range(0, 100);
         int R = Random.Range(0, 5);
-        if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value >= 8)
+        if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value >= 80)
         {
 
             if (R == 0)
@@ -265,16 +265,22 @@ public class World : MonoBehaviour
                 treeSpawn.transform.SetParent(this.transform);
 
             }
-         
-        }
-        if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value == 9)
+            if (R == 4)
+            {
+                GameObject stonespawn = Instantiate(stone, pozycja, Quaternion.identity);
+                stonespawn.transform.SetParent(this.transform);
+
+
+
+            }
+            if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value >= 9)
         {
             GameObject treegrass2Spawn = Instantiate(autumn_tree, pozycja, Quaternion.identity);
             treegrass2Spawn.transform.SetParent(this.transform);
 
         }
-
-        if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 9)
+        
+        if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 90)
          {
             if (R == 0)
             {
