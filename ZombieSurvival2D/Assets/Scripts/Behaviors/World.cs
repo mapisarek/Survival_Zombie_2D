@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class World : MonoBehaviour {
+public class World : MonoBehaviour
+{
 
-	public static World instance;
+    public static World instance;
 
-	public Material material;
+    public Material material;
 
     public string seed;
     public bool randomSeed;
-	public int width;
-	public int height;
+    public int width;
+    public int height;
 
-	public Tile[,] tiles;
+    public Tile[,] tiles;
 
     public float frequency;
     public float amplitude;
 
-     public float lecunarity;
+    public float lecunarity;
     public float presistance;
 
-     public int octawes;
+    public int octawes;
 
     Noise noise;
 
@@ -61,7 +62,8 @@ public class World : MonoBehaviour {
     public GameObject tree6;
 
     // Use this for initialization
-    void Awake() {
+    void Awake()
+    {
 
         instance = this;
 
@@ -78,35 +80,40 @@ public class World : MonoBehaviour {
 
     }
 
-	void Start () {
+    void Start()
+    {
 
-		CreateTiles ();
-		SubdivideTilesArray ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        CreateTiles();
+        SubdivideTilesArray();
+    }
 
-	void CreateTiles () {
+    // Update is called once per frame
+    void Update()
+    {
 
-		tiles = new Tile[width, height];
+    }
+
+    void CreateTiles()
+    {
+
+        tiles = new Tile[width, height];
         float[,] noiseValues = noise.GetNosiseValues(width, height);
-        
 
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
+
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
 
                 tiles[i, j] = MakeTileAtHeight(noiseValues[i, j]);
-                
-			}
-		}
-	}
+
+            }
+        }
+    }
 
     Tile MakeTileAtHeight(float currentHeight)
     {
-        if (currentHeight<=seaLevel)
+        if (currentHeight <= seaLevel)
         {
             return new Tile(Tile.Type.Water);
         }
@@ -143,84 +150,118 @@ public class World : MonoBehaviour {
     }
 
 
-	void SubdivideTilesArray (int i1 = 0, int i2 = 0) {
+    void SubdivideTilesArray(int i1 = 0, int i2 = 0)
+    {
 
-		if (i1 > tiles.GetLength (0) && i2 > tiles.GetLength (1))
-			return;
+        if (i1 > tiles.GetLength(0) && i2 > tiles.GetLength(1))
+            return;
 
-		//Get size of segment
-		int sizeX, sizeY;
+        //Get size of segment
+        int sizeX, sizeY;
 
-		if (tiles.GetLength (0) - i1 > 100) {
+        if (tiles.GetLength(0) - i1 > 100)
+        {
 
-			sizeX = 100;
-		} else
-			sizeX = tiles.GetLength (0) - i1;
+            sizeX = 100;
+        }
+        else
+            sizeX = tiles.GetLength(0) - i1;
 
-		if (tiles.GetLength (1) - i2 > 100) {
+        if (tiles.GetLength(1) - i2 > 100)
+        {
 
-			sizeY = 100;
-		} else
-			sizeY = tiles.GetLength (1) - i2;
+            sizeY = 100;
+        }
+        else
+            sizeY = tiles.GetLength(1) - i2;
 
-		GenerateMesh (i1, i2, sizeX, sizeY);
+        GenerateMesh(i1, i2, sizeX, sizeY);
 
-		if (tiles.GetLength (0) > i1 + 100) {
-			SubdivideTilesArray (i1 + 100, i2);
-			return;
-		}
+        if (tiles.GetLength(0) > i1 + 100)
+        {
+            SubdivideTilesArray(i1 + 100, i2);
+            return;
+        }
 
-		if (tiles.GetLength (1) > i2 + 100) {
-			SubdivideTilesArray (0, i2 + 100);
-			return;
-		}
-	}
+        if (tiles.GetLength(1) > i2 + 100)
+        {
+            SubdivideTilesArray(0, i2 + 100);
+            return;
+        }
+    }
 
-	void GenerateMesh (int x, int y, int width, int height) {
+    void GenerateMesh(int x, int y, int width, int height)
+    {
 
-		MeshData data = new MeshData (x, y, width, height);
+        MeshData data = new MeshData(x, y, width, height);
 
-		GameObject meshGO = new GameObject ("CHUNK_" + x + "_" + y);
-		meshGO.transform.SetParent (this.transform);
+        GameObject meshGO = new GameObject("CHUNK_" + x + "_" + y);
+        meshGO.transform.SetParent(this.transform);
 
-		MeshFilter filter = meshGO.AddComponent<MeshFilter> ();
-		MeshRenderer render = meshGO.AddComponent<MeshRenderer> ();
-		render.material = material;
+        MeshFilter filter = meshGO.AddComponent<MeshFilter>();
+        MeshRenderer render = meshGO.AddComponent<MeshRenderer>();
+        render.material = material;
 
-		Mesh mesh = filter.mesh;
+        Mesh mesh = filter.mesh;
 
-		mesh.vertices = data.vertices.ToArray ();
-		mesh.triangles = data.triangles.ToArray ();
-		mesh.uv = data.UVs.ToArray ();
-	}
+        mesh.vertices = data.vertices.ToArray();
+        mesh.triangles = data.triangles.ToArray();
+        mesh.uv = data.UVs.ToArray();
+    }
 
-	public Tile GetTileAt (int x, int y) {
+    public Tile GetTileAt(int x, int y)
+    {
 
-		if (x < 0 || x >= width || y < 0 || y >= height) {
+        if (x < 0 || x >= width || y < 0 || y >= height)
+        {
 
-			return null;
-		}
+            return null;
+        }
 
-		return tiles [x, y];
-	}
+        return tiles[x, y];
+    }
 
     void TreeSpawer(float wysokosc, int x, int y)
     {
-       
+
         var pozycja = new Vector2(x, y);
         int value = Random.Range(0, 100);
         int R = Random.Range(0, 5);
         if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value <= 5)
         {
 
-            
+            if (R == 0)
+            {
+                GameObject treeSpawn = Instantiate(tree, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+            }
+            if (R == 1)
+            {
+                GameObject treeSpawn = Instantiate(tree2, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 2)
+            {
+                GameObject treeSpawn = Instantiate(tree3, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 3)
+            {
+                GameObject treeSpawn = Instantiate(tree4, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 4)
+            {
+                GameObject treeSpawn = Instantiate(tree5, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+
             }
 
 
         }
 
-
-
-
-
     }
+}
