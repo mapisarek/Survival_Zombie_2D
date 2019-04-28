@@ -276,7 +276,17 @@ public class World : MonoBehaviour
 
         if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 9)
          {
-            
+            if (R == 0)
+            {
+                GameObject stoneSpawn = Instantiate(resource_stone, pozycja, Quaternion.identity);
+                stoneSpawn.transform.SetParent(this.transform);
+            }
+            if (R == 1)
+            {
+                GameObject stoneSpawn = Instantiate(resource_stone2, pozycja, Quaternion.identity);
+                stoneSpawn.transform.SetParent(this.transform);
+
+            }
 
         }
 
