@@ -48,7 +48,10 @@ public class World : MonoBehaviour {
     public float snowStartHeight;
     public float snowEndHeight;
 
-
+    List<Vector2> points;
+    public float radius = 1;
+    public Vector2 regionSize = Vector2.one;
+    public int rejectionSamples = 30;
 
     public GameObject tree;
     public GameObject tree2;
