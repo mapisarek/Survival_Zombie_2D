@@ -9,7 +9,6 @@ public class Enemy : NPC
     private CanvasGroup healthGroup;
     private Transform target;
     private IState currentState;
-    
 
     public Transform Target
     {
@@ -57,6 +56,7 @@ public class Enemy : NPC
 
         currentState.Enter(this);
     }
+
 
 
 }

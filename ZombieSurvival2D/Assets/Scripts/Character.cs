@@ -10,7 +10,7 @@ public abstract class Character : MonoBehaviour
     private float speed;
     [SerializeField]
     protected Statistics health;
-    protected Vector2 direction;
+    private Vector2 direction;
     private Animator animator;
     private new Rigidbody2D rigidbody2D;
     protected bool IsAttacking = false;
@@ -62,7 +62,6 @@ public abstract class Character : MonoBehaviour
 
     private void FixedUpdate()
     {
-        HandleLayer();
         Movement();
     }
 
@@ -92,10 +91,11 @@ public abstract class Character : MonoBehaviour
     public void AnimationMovement(Vector2 direction)
     {
         ActivateLayer("WalkLayer");
-
+        
         animator.SetFloat("x", direction.x);
         animator.SetFloat("y", direction.y);
     }
+
 
     public void ActivateLayer(string layerName)
     {
