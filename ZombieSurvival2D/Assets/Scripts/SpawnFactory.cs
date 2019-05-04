@@ -21,6 +21,14 @@ namespace Assets.Scripts
         }
     }
 
-
+    class EnemyFactory : MonoBehaviour, ISpawnFactory
+    {
+        public void SpawnEnemy(GameObject[] enemy, float xMin, float xMax, float yMin, float yMax)
+        {
+            Vector3 pos = new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax));
+            GameObject monsterPrefab = enemy[Random.Range(0, enemy.Length)];
+            Instantiate(monsterPrefab, pos, Quaternion.Euler(0, 0, 0));
+        }
+    }
 
 }
