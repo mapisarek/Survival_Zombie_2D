@@ -56,16 +56,7 @@ namespace Assets.Scripts
             }
         }
 
-        private void InitializeSpawn()
-        {
-                theCountdown -= Time.deltaTime;
-                if (theCountdown <= 0)
-                {
-                    CreateMobs();
-                    theCountdown = waitingForNextSpawn;
-                }
 
-        }
     }
 
 }
