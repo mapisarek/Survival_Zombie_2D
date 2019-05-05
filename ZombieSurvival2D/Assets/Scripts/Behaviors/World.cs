@@ -319,7 +319,11 @@ public class World : MonoBehaviour
             }
 
         }
+        if (wysokosc >= snowStartHeight && wysokosc <= snowEndHeight && value >= 90)
+        {
 
+
+        }
 
 
 
