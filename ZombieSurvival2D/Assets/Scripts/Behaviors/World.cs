@@ -69,6 +69,7 @@ public class World : MonoBehaviour
     public GameObject resource_stone2;
     public GameObject iron_stone;
     public GameObject gold_stone;
+    public GameObject Ice_Block_v1;
 
     // Use this for initialization
 
