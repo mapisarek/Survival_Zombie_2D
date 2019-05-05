@@ -71,7 +71,7 @@ public class World : MonoBehaviour
     public GameObject gold_stone;
     public GameObject Ice_Block_v1;
     public GameObject Ice_Block_v2;
-
+    public GameObject Ice_Block_v3;
 
     // Use this for initialization
 
