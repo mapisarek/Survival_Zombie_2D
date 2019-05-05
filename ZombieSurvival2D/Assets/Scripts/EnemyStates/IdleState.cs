@@ -22,7 +22,6 @@ class IdleState : IState
     {
         if (parent.Target != null)
         {
-            Debug.Log("FOLLOW STATE");
             parent.ChangeState(new FollowState());
         }
     }

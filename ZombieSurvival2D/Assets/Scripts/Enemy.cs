@@ -9,6 +9,7 @@ public class Enemy : NPC
     private CanvasGroup healthGroup;
     private Transform target;
     private IState currentState;
+    public Vector3 StartPosition;
 
     public Transform Target
     {
@@ -36,6 +37,7 @@ public class Enemy : NPC
 
     protected void Awake()
     {
+        StartPosition = transform.position;
         ChangeState(new IdleState());
     }
 

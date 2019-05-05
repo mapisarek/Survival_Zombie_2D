@@ -18,5 +18,12 @@ public class EvadeState : IState
 
     public void Update()
     {
+        parent.Direction = (parent.StartPosition - parent.transform.position).normalized;
+        parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.StartPosition, parent.Speed * Time.deltaTime);
+        float distance = Vector2.Distance(parent.StartPosition, parent.transform.position);
+        if(distance <= 0)
+        {
+            parent.ChangeState(new IdleState());
+        }
     }
 }

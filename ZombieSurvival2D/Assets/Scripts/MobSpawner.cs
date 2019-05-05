@@ -5,12 +5,14 @@ using UnityEngine;
 public class MobSpawner : MonoBehaviour
 {
     public GameObject[] animals;
+    public GameObject[] monsters;
 
     [Space(3)]
     public float waitingForNextSpawn = 10;
     public float theCountdown = 10;
     public float animalAmount = 15;
-    
+    public float monstersAmount = 15;
+
     [Header("(X) Spawn Range")]
     public float xMin;
     public float xMax;
@@ -20,6 +22,7 @@ public class MobSpawner : MonoBehaviour
     public float yMax;
 
     private float animalCount;
+    private float monstersCount;
 
     public void Update()
     {
@@ -45,10 +48,13 @@ public class MobSpawner : MonoBehaviour
         {
             Vector3 pos = new Vector3(Random.Range(xMin, xMax), Random.Range(yMin, yMax), -1);
             GameObject animalPrefab = animals[Random.Range(0, animals.Length)];
-            Instantiate(animalPrefab, pos, transform.rotation);
+            Instantiate(animalPrefab, pos, Quaternion.identity);
             animalCount++;
         }
         
     }
+
+
+
 
 }

@@ -8,8 +8,6 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField]
     private float speed;
-    [SerializeField]
-    protected Statistics health;
     private Vector2 direction;
     private Animator animator;
     private new Rigidbody2D rigidbody2D;
@@ -110,11 +108,11 @@ public abstract class Character : MonoBehaviour
 
     public virtual void TakeDamage(float damage)
     {
-        health.CurrentValue -= damage;
-        if(health.CurrentValue <= 0)
-        {
-            animator.SetTrigger("die");
-        }
+        //health.CurrentValue -= damage;
+        //if(health.CurrentValue <= 0)
+        //{
+         //   animator.SetTrigger("die");
+        //}
     }
     
 }

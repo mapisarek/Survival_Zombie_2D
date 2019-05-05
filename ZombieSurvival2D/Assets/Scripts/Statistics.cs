@@ -19,7 +19,6 @@ public class Statistics : MonoBehaviour
         {
             return currentValue;
         }
-
         set
         {
             if (value > InitMaxValue)
@@ -34,6 +33,7 @@ public class Statistics : MonoBehaviour
             {
                 currentValue = value;
             }
+            currentFill = CurrentValue / InitMaxValue;
         }
     }
 
@@ -42,6 +42,7 @@ public class Statistics : MonoBehaviour
     {
         content = GetComponent<Image>();
     }
+
     
     public void Initialize(float currentValue, float maxValue)
     {
@@ -57,3 +58,4 @@ public class Statistics : MonoBehaviour
         }
     }
 }
+ 

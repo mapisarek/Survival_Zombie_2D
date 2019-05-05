@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class Player : Character
 {
-
+    [SerializeField]
+    protected Statistics health;
     [SerializeField]
     private float healthValue;
     [SerializeField]
     private float maxHealth;
-
     [SerializeField]
-    private Statistics stamina;
+    protected Statistics stamina;
     [SerializeField]
     private float staminaValue;
     [SerializeField]
     private float maxStamina;
 
-
     [SerializeField]
-    private Statistics armor;
+    protected Statistics armor;
     [SerializeField]
     private float armorValue;
     [SerializeField]
     private float maxArmor;
+
     private float basicSpeed;
     private float runSpeed;
 	private float Timer;
@@ -40,11 +40,15 @@ public class Player : Character
 	
     protected override void Start()
     {
-        //  health.Initialize(healthValue,maxHealth);
-        //stamina.Initialize(staminaValue, maxStamina);
-        //armor.Initialize(armorValue, maxArmor);
         setupVariables();
         base.Start();
+    }
+
+    private void InitializeStatsValues()
+    {
+        health.Initialize(healthValue, maxHealth);
+        stamina.Initialize(staminaValue, maxStamina);
+        armor.Initialize(armorValue, maxArmor);
     }
 
     private void setupVariables()
@@ -55,10 +59,11 @@ public class Player : Character
         basicSpeed = Speed;
         runSpeed = basicSpeed * boost;
     }
-
+        
     protected override void Update()
     {
-		Timer += Time.deltaTime;
+        InitializeStatsValues();
+        Timer += Time.deltaTime;
 		basicSetup();
         InputKeys();
         //health.CurrentValue = 100;

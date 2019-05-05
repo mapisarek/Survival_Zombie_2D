@@ -22,7 +22,6 @@ class FollowState : IState
     {
         if(parent.Target != null)
         {
-            Debug.Log("FOLLOWING RIGHT NOW");
             parent.Direction = (parent.Target.transform.position - parent.transform.position).normalized;
             parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.Target.position, parent.Speed * Time.deltaTime);
         }
