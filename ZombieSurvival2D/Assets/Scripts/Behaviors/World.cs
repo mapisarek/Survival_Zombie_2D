@@ -68,7 +68,7 @@ public class World : MonoBehaviour
     public GameObject resource_stone;
     public GameObject resource_stone2;
     public GameObject iron_stone;
-    
+    public GameObject gold_stone;
 
     // Use this for initialization
 
@@ -306,6 +306,13 @@ public class World : MonoBehaviour
             if (R == 2)
             {
                 GameObject stoneSpawn = Instantiate(iron_stone, pozycja, Quaternion.identity);
+                stoneSpawn.transform.SetParent(this.transform);
+
+
+            }
+            if (R == 3)
+            {
+                GameObject stoneSpawn = Instantiate(gold_stone, pozycja, Quaternion.identity);
                 stoneSpawn.transform.SetParent(this.transform);
 
             }
