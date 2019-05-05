@@ -321,7 +321,12 @@ public class World : MonoBehaviour
         }
         if (wysokosc >= snowStartHeight && wysokosc <= snowEndHeight && value >= 90)
         {
+            if (R == 0)
+            {
+                GameObject IceSpawn = Instantiate(Ice_Block_v1, pozycja, Quaternion.identity);
+                IceSpawn.transform.SetParent(this.transform);
 
+            }
 
         }
 
