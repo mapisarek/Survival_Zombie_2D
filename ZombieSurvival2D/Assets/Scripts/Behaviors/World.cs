@@ -293,7 +293,7 @@ public class World : MonoBehaviour
 
 
             
-        if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 80)
+        if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 92)
         {
             if (R == 0)
             {
