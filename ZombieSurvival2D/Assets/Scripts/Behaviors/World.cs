@@ -335,6 +335,12 @@ public class World : MonoBehaviour
                 IceSpawn.transform.SetParent(this.transform);
 
             }
+            if (R == 2)
+            {
+                GameObject IceSpawn = Instantiate(Ice_Block_v3, pozycja, Quaternion.identity);
+                IceSpawn.transform.SetParent(this.transform);
+
+            }
         }
 
 
