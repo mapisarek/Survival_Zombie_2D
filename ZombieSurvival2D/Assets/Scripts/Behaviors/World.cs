@@ -240,7 +240,8 @@ public class World : MonoBehaviour
 
     void TreeSpawer(float wysokosc, int x, int y)
     {
-        var pozycja = new Vector2(x, y);
+        float z = -1;
+        var pozycja = new Vector3(x, y,z);
         int value = Random.Range(0, 100);
         int R = Random.Range(0, 5);
         if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value >= 80)
