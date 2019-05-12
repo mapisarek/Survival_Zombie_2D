@@ -72,23 +72,23 @@ public class Player : Character
 
     private void InputKeys()
     {
-        Direction = Vector2.zero;
+        Direction = Vector3.zero;
 
         if(Input.GetKey(KeyCode.W))
         {
-            Direction += Vector2.up;
+            Direction += Vector3.up;
         }
         if (Input.GetKey(KeyCode.A))
         {
-            Direction += Vector2.left;
+            Direction += Vector3.left;
         }
         if (Input.GetKey(KeyCode.S))
         {
-            Direction += Vector2.down; 
+            Direction += Vector3.down; 
         }
         if (Input.GetKey(KeyCode.D))
         {
-            Direction += Vector2.right;
+            Direction += Vector3.right;
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {

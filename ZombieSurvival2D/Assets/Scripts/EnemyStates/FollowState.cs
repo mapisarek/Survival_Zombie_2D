@@ -15,7 +15,7 @@ class FollowState : IState
 
     public void Exit()
     {
-        parent.Direction = Vector2.zero;
+        parent.Direction = Vector3.zero;
     }
 
     public void Update()
@@ -23,7 +23,7 @@ class FollowState : IState
         if(parent.Target != null)
         {
             parent.Direction = (parent.Target.transform.position - parent.transform.position).normalized;
-            parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.Target.position, parent.Speed * Time.deltaTime);
+            parent.transform.position = Vector3.MoveTowards(parent.transform.position, parent.Target.position, parent.Speed * Time.deltaTime);
         }
         else
         {

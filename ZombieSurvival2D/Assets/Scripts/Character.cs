@@ -8,7 +8,7 @@ public abstract class Character : MonoBehaviour
 {
     [SerializeField]
     private float speed;
-    private Vector2 direction;
+    private Vector3 direction;
     private Animator animator;
     private new Rigidbody2D rigidbody2D;
     protected bool IsAttacking = false;
@@ -21,7 +21,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    public Vector2 Direction
+    public Vector3 Direction
     {
         get
         {
@@ -86,7 +86,7 @@ public abstract class Character : MonoBehaviour
         }
     }
 
-    public void AnimationMovement(Vector2 direction)
+    public void AnimationMovement(Vector3 direction)
     {
         ActivateLayer("WalkLayer");
         

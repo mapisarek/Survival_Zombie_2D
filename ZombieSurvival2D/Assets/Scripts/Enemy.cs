@@ -44,7 +44,7 @@ public class Enemy : NPC
 
     public override void TakeDamage(float damage)
     {
-        Direction = Vector2.zero;
+        Direction = Vector3.zero;
         base.TakeDamage(damage);
     }
 
