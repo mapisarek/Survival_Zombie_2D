@@ -44,6 +44,13 @@ public class Inv : MonoBehaviour
         }
         return true;
     }
-
-
+	
+	    public void Remove(Items item)
+    {
+        items.Remove(item);
+        if (onItemChangedCallback != null)
+        {
+            onItemChangedCallback.Invoke();
+        }
+    }
 }
