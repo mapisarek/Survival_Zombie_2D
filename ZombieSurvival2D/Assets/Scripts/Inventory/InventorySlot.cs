@@ -35,7 +35,15 @@ public class InventorySlot : MonoBehaviour
         Inv.instance.Remove(item);
     }
 
-
+  public void UseItem()
+    {
+        if (item != null)
+        {
+            Debug.Log("Using item " + item.name);
+            Inv.instance.Remove(item);
+           // item.Use();
+        }
+    }
   
    
 }
