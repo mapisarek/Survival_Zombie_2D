@@ -42,6 +42,12 @@ public class Interactable : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position,radius);
     }
 
-  
+    public void OnDefocused()
+    {
+        isFocus = false;
+        player = null;
+        hasInteracted = false;
+    }
+
 
 }
