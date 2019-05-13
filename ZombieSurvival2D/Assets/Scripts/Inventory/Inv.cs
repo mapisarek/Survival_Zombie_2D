@@ -24,4 +24,26 @@ public class Inv : MonoBehaviour
     public List<Items> items = new List<Items>();
     public int space = 20;
 
+	
+	
+    public bool Add(Items item)
+    {
+        Debug.Log("Item added " + item.name);
+        if (!item.isDefaultItem)
+        {
+            if(items.Count >= space)
+            {
+                Debug.Log("Not enough room");
+                return false;
+            }
+            items.Add(item);
+            if(onItemChangedCallback != null)
+            {
+                onItemChangedCallback.Invoke();
+            }
+        }
+        return true;
+    }
+
+
 }
