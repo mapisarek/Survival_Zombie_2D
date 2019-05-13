@@ -8,5 +8,13 @@ public class InvUI : MonoBehaviour
     Inv inventory;
     InventorySlot[] slots;
 
-   
+     void Start()
+    {
+        inventory = Inv.instance;
+        inventory.onItemChangedCallback += UpdateUI;
+
+        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+    }
+
+    
 }
