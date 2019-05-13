@@ -49,5 +49,11 @@ public class Interactable : MonoBehaviour
         hasInteracted = false;
     }
 
+    public void OnFocused(Transform playerTransform)
+    {
+        isFocus = true;
+        player = playerTransform;
+        hasInteracted = false;
+    }
 
 }
