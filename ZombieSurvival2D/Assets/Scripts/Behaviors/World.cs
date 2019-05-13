@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class World : MonoBehaviour {
+public class World : MonoBehaviour
+{
 
-	public static World instance;
+    public static World instance;
 
-	public Material material;
+    public Material material;
 
     public string seed;
     public bool randomSeed;
-	public int width;
-	public int height;
+    public int width;
+    public int height;
 
-	public Tile[,] tiles;
+    public Tile[,] tiles;
 
     public float frequency;
     public float amplitude;
 
-     public float lecunarity;
+    public float lecunarity;
     public float presistance;
 
-     public int octawes;
+    public int octawes;
 
     Noise noise;
 
@@ -49,15 +50,41 @@ public class World : MonoBehaviour {
     public float snowEndHeight;
 
 
+
+
+
+
+    List<Vector2> points;
+
+
+
+    public GameObject tree;
+    public GameObject tree2;
+    public GameObject tree3;
+    public GameObject tree4;
+    public GameObject autumn_tree;
+
+    public GameObject stone;
+    public GameObject resource_stone;
+    public GameObject resource_stone2;
+    public GameObject iron_stone;
+    public GameObject gold_stone;
+    public GameObject Ice_Block_v1;
+    public GameObject Ice_Block_v2;
+    public GameObject Ice_Block_v3;
+
     // Use this for initialization
-    void Awake() {
+
+
+    void Awake()
+    {
 
         instance = this;
 
 
         if (randomSeed == true)
         {
-            int value = Random.Range(-10000, 10000);
+            int value = Random.Range(0, 10000);
             seed = value.ToString();
         }
 
@@ -67,35 +94,43 @@ public class World : MonoBehaviour {
 
     }
 
-	void Start () {
 
-		CreateTiles ();
-		SubdivideTilesArray ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
 
-	void CreateTiles () {
+        CreateTiles();
+        SubdivideTilesArray();
+    }
 
-		tiles = new Tile[width, height];
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    void CreateTiles()
+    {
+
+        tiles = new Tile[width, height];
         float[,] noiseValues = noise.GetNosiseValues(width, height);
-        
 
-		for (int i = 0; i < width; i++) {
-			for (int j = 0; j < height; j++) {
+        Debug.Log(noiseValues[10, 10]);
+
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
 
                 tiles[i, j] = MakeTileAtHeight(noiseValues[i, j]);
-                
-			}
-		}
-	}
+                TreeSpawer(noiseValues[i, j], i, j);
+
+            }
+        }
+    }
 
     Tile MakeTileAtHeight(float currentHeight)
     {
-        if (currentHeight<=seaLevel)
+        if (currentHeight <= seaLevel)
         {
             return new Tile(Tile.Type.Water);
         }
@@ -132,64 +167,186 @@ public class World : MonoBehaviour {
     }
 
 
-	void SubdivideTilesArray (int i1 = 0, int i2 = 0) {
+    void SubdivideTilesArray(int i1 = 0, int i2 = 0)
+    {
 
-		if (i1 > tiles.GetLength (0) && i2 > tiles.GetLength (1))
-			return;
+        if (i1 > tiles.GetLength(0) && i2 > tiles.GetLength(1))
+            return;
 
-		//Get size of segment
-		int sizeX, sizeY;
 
-		if (tiles.GetLength (0) - i1 > 100) {
+        int sizeX, sizeY;
 
-			sizeX = 100;
-		} else
-			sizeX = tiles.GetLength (0) - i1;
+        if (tiles.GetLength(0) - i1 > 100)
+        {
 
-		if (tiles.GetLength (1) - i2 > 100) {
+            sizeX = 100;
+        }
+        else
+            sizeX = tiles.GetLength(0) - i1;
 
-			sizeY = 100;
-		} else
-			sizeY = tiles.GetLength (1) - i2;
+        if (tiles.GetLength(1) - i2 > 100)
+        {
 
-		GenerateMesh (i1, i2, sizeX, sizeY);
+            sizeY = 100;
+        }
+        else
+            sizeY = tiles.GetLength(1) - i2;
 
-		if (tiles.GetLength (0) > i1 + 100) {
-			SubdivideTilesArray (i1 + 100, i2);
-			return;
-		}
+        GenerateMesh(i1, i2, sizeX, sizeY);
 
-		if (tiles.GetLength (1) > i2 + 100) {
-			SubdivideTilesArray (0, i2 + 100);
-			return;
-		}
-	}
+        if (tiles.GetLength(0) > i1 + 100)
+        {
+            SubdivideTilesArray(i1 + 100, i2);
+            return;
+        }
 
-	void GenerateMesh (int x, int y, int width, int height) {
+        if (tiles.GetLength(1) > i2 + 100)
+        {
+            SubdivideTilesArray(0, i2 + 100);
+            return;
+        }
+    }
 
-		MeshData data = new MeshData (x, y, width, height);
+    void GenerateMesh(int x, int y, int width, int height)
+    {
 
-		GameObject meshGO = new GameObject ("CHUNK_" + x + "_" + y);
-		meshGO.transform.SetParent (this.transform);
+        MeshData data = new MeshData(x, y, width, height);
 
-		MeshFilter filter = meshGO.AddComponent<MeshFilter> ();
-		MeshRenderer render = meshGO.AddComponent<MeshRenderer> ();
-		render.material = material;
+        GameObject meshGO = new GameObject("CHUNK_" + x + "_" + y);
+        meshGO.transform.SetParent(this.transform);
 
-		Mesh mesh = filter.mesh;
+        MeshFilter filter = meshGO.AddComponent<MeshFilter>();
+        MeshRenderer render = meshGO.AddComponent<MeshRenderer>();
+        render.material = material;
 
-		mesh.vertices = data.vertices.ToArray ();
-		mesh.triangles = data.triangles.ToArray ();
-		mesh.uv = data.UVs.ToArray ();
-	}
+        Mesh mesh = filter.mesh;
 
-	public Tile GetTileAt (int x, int y) {
+        mesh.vertices = data.vertices.ToArray();
+        mesh.triangles = data.triangles.ToArray();
+        mesh.uv = data.UVs.ToArray();
+    }
 
-		if (x < 0 || x >= width || y < 0 || y >= height) {
+    public Tile GetTileAt(int x, int y)
+    {
 
-			return null;
-		}
+        if (x < 0 || x >= width || y < 0 || y >= height)
+        {
 
-		return tiles [x, y];
-	}
+            return null;
+        }
+
+        return tiles[x, y];
+    }
+
+    void TreeSpawer(float wysokosc, int x, int y)
+    {
+        float z = -1;
+        var pozycja = new Vector3(x, y,z);
+        int value = Random.Range(0, 100);
+        int R = Random.Range(0, 5);
+        if (wysokosc >= grassStartHeight && wysokosc <= grassEndHeight && value >= 80)
+        {
+
+            if (R == 0)
+            {
+                GameObject treeSpawn = Instantiate(tree, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+            }
+            if (R == 1)
+            {
+                GameObject treeSpawn = Instantiate(tree2, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 2)
+            {
+                GameObject treeSpawn = Instantiate(tree3, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 3)
+            {
+                GameObject treeSpawn = Instantiate(tree4, pozycja, Quaternion.identity);
+                treeSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 4)
+            {
+                GameObject stonespawn = Instantiate(stone, pozycja, Quaternion.identity);
+                stonespawn.transform.SetParent(this.transform);
+
+
+
+            }
+        }
+        if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value >= 90)
+        {
+            GameObject treegrass2Spawn = Instantiate(autumn_tree, pozycja, Quaternion.identity);
+            treegrass2Spawn.transform.SetParent(this.transform);
+
+        }
+        if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value == 50)
+        {
+            GameObject stonespawn = Instantiate(stone, pozycja, Quaternion.identity);
+            stonespawn.transform.SetParent(this.transform);
+
+        }
+
+
+            
+        if (wysokosc >= stoneStartHeight && wysokosc <= stoneEndHeight && value >= 92)
+        {
+            if (R == 0)
+            {
+                GameObject stoneSpawn = Instantiate(resource_stone, pozycja, Quaternion.identity);
+                stoneSpawn.transform.SetParent(this.transform);
+            }
+            if (R == 1)
+            {
+                GameObject stoneSpawn = Instantiate(resource_stone2, pozycja, Quaternion.identity);
+                stoneSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 2)
+            {
+                GameObject stoneSpawn = Instantiate(iron_stone, pozycja, Quaternion.identity);
+                stoneSpawn.transform.SetParent(this.transform);
+
+
+            }
+            if (R == 3)
+            {
+                GameObject stoneSpawn = Instantiate(gold_stone, pozycja, Quaternion.identity);
+                stoneSpawn.transform.SetParent(this.transform);
+
+            }
+
+        }
+        if (wysokosc >= snowStartHeight && wysokosc <= snowEndHeight && value >= 90)
+        {
+            if (R == 0)
+            {
+                GameObject IceSpawn = Instantiate(Ice_Block_v1, pozycja, Quaternion.identity);
+                IceSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 1)
+            {
+                GameObject IceSpawn = Instantiate(Ice_Block_v2, pozycja, Quaternion.identity);
+                IceSpawn.transform.SetParent(this.transform);
+
+            }
+            if (R == 2)
+            {
+                GameObject IceSpawn = Instantiate(Ice_Block_v3, pozycja, Quaternion.identity);
+                IceSpawn.transform.SetParent(this.transform);
+
+            }
+        }
+
+
+
+
+
+    }
 }
