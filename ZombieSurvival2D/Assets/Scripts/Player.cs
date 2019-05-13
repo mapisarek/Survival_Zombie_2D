@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Character
 {
+    Camera cam;
+
     [SerializeField]
     protected Statistics health;
     [SerializeField]
@@ -36,10 +38,13 @@ public class Player : Character
     private float staminaWaste;
     [SerializeField]
     private float staminaRegeneration;
+
+    public Interactable focus;
   
 	
     protected override void Start()
     {
+        cam = Camera.main;
         setupVariables();
         base.Start();
     }
@@ -74,21 +79,47 @@ public class Player : Character
     {
         Direction = Vector3.zero;
 
-        if(Input.GetKey(KeyCode.W))
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if(Physics.Raycast(ray,out hit, 100))
+            {
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if(interactable != null)
+                {
+                    SetFocus(interactable);
+                }
+            }
+        }
+
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            RemoveFocus();
+        }
+
+        if (Input.GetKey(KeyCode.W))
         {
             Direction += Vector3.up;
+            RemoveFocus();
         }
         if (Input.GetKey(KeyCode.A))
         {
             Direction += Vector3.left;
+            RemoveFocus();
         }
         if (Input.GetKey(KeyCode.S))
         {
-            Direction += Vector3.down; 
+            Direction += Vector3.down;
+            RemoveFocus();
         }
         if (Input.GetKey(KeyCode.D))
         {
             Direction += Vector3.right;
+            RemoveFocus();
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -102,8 +133,33 @@ public class Player : Character
 		}
         
     }
-	
-	private void basicSetup(){
+
+    // Set our focus to a new focus
+    void SetFocus(Interactable newFocus)
+    {
+        // If our focus has changed
+        if (newFocus != focus)
+        {
+            // Defocus the old one
+            if (focus != null)
+                focus.OnDefocused();
+
+            focus = newFocus;   // Set our new focus
+        }
+
+        newFocus.OnFocused(transform);
+    }
+
+
+    void RemoveFocus()
+    {
+        if (focus != null)
+            focus.OnDefocused();
+
+        focus = null;
+    }
+
+    private void basicSetup(){
 		if(!isRunning){
 			Speed = basicSpeed;
 			staminaRegen();
