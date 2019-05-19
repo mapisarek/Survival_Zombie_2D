@@ -65,6 +65,7 @@ public class World : MonoBehaviour
     public GameObject autumn_tree;
 
     public GameObject bush_v1;
+    public GameObject bush_v2;
 
     public GameObject stone;
     public GameObject resource_stone;
@@ -268,7 +269,7 @@ public class World : MonoBehaviour
             }
             if (R == 3)
             {
-                GameObject treeSpawn = Instantiate(tree4, pozycja, Quaternion.identity);
+                GameObject treeSpawn = Instantiate(bush_v2, pozycja, Quaternion.identity);
                 treeSpawn.transform.SetParent(this.transform);
 
             }
