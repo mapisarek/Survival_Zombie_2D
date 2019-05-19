@@ -66,8 +66,9 @@ public class World : MonoBehaviour
 
     public GameObject bush_v1;
     public GameObject bush_v2;
-    public GameObject bush_v3
-        ;
+    public GameObject bush_v3;
+    public GameObject bush_v4;
+
     public GameObject stone;
     public GameObject resource_stone;
     public GameObject resource_stone2;
@@ -290,10 +291,15 @@ public class World : MonoBehaviour
             treegrass2Spawn.transform.SetParent(this.transform);
 
         }
+        if (R == 0)
         {
-            GameObject treegrass2Spawn = Instantiate(bush_v3, pozycja, Quaternion.identity);
-            treegrass2Spawn.transform.SetParent(this.transform);
-
+            GameObject treeSpawn = Instantiate(bush_v3, pozycja, Quaternion.identity);
+            treeSpawn.transform.SetParent(this.transform);
+        }
+        if (R == 1)
+        {
+            GameObject treeSpawn = Instantiate(bush_v4, pozycja, Quaternion.identity);
+            treeSpawn.transform.SetParent(this.transform);
         }
         if (wysokosc >= grass2StartHeight && wysokosc <= grass2EndHeight && value == 50)
         {
