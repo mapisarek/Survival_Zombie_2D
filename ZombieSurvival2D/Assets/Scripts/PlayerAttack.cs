@@ -26,7 +26,10 @@ public class PlayerAttack : MonoBehaviour
 
             timeBtwAttack = startTimeBtwAttack;
         }
-
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
     }
 
     private void OnDrawGizmosSelected()
