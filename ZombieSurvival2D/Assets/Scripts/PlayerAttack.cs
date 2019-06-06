@@ -11,16 +11,22 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask whatIsEnemies;
     public int damage;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        
-    }
+        if (timeBtwAttack <= 0)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);
+                for (int i = 0; i < enemiesToDamage.Length; i++)
+                {
+                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                }
+            }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            timeBtwAttack = startTimeBtwAttack;
+        }
+
     }
 
     private void OnDrawGizmosSelected()
