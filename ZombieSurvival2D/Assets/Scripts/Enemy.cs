@@ -56,6 +56,12 @@ public class Enemy : NPC
         base.TakeDamage(damage);
     }
 
+
+    private void InitStats()
+    {
+        health.Initialize(healthValue, maxHealth);
+    }
+
     public void TakeDamage(int damage)
     {
         healthValue -= damage;
