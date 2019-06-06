@@ -13,6 +13,11 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        attackObjectsAround();
+    }
+
+    private void attackObjectsAround()
+    {
         if (timeBtwAttack <= 0)
         {
             if (Input.GetKey(KeyCode.Space))
