@@ -11,6 +11,14 @@ public class Enemy : NPC
     private IState currentState;
     public Vector3 StartPosition;
 
+    [SerializeField]
+    public Statistics health;
+    [SerializeField]
+    private float healthValue;
+    [SerializeField]
+    private float maxHealth;
+
+
     public Transform Target
     {
         get
