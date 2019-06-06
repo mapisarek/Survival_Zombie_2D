@@ -56,6 +56,20 @@ public class Enemy : NPC
         base.TakeDamage(damage);
     }
 
+    public void TakeDamage(int damage)
+    {
+        healthValue -= damage;
+        Debug.Log("Damage taken");
+        CheckEnemyStatus();
+    }
+
+    private void CheckEnemyStatus()
+    {
+        if (healthValue <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void ChangeState(IState newState)
     {
