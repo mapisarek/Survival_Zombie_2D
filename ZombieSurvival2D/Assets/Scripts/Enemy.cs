@@ -56,6 +56,7 @@ public class Enemy : NPC
         base.TakeDamage(damage);
     }
 
+
     public void ChangeState(IState newState)
     {
         if(currentState != null)
