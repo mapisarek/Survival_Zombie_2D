@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : Attack
 {
-    private float timeBtwAttack;
-    public float startTimeBtwAttack;
     public Transform attackPos;
     public float attackRange;
     public LayerMask whatIsEnemies;
-    public int damage;
 
     void Update()
     {
@@ -28,7 +25,8 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);
+                Debug.Log("Dmg enemies");
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);

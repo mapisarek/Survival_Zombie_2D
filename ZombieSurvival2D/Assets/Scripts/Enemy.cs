@@ -7,6 +7,17 @@ public class Enemy : NPC
 
     [SerializeField]
     private CanvasGroup healthGroup;
+    [SerializeField]
+    public Statistics health;
+    [SerializeField]
+    private float healthValue;
+    [SerializeField]
+    private float maxHealth;
+    [SerializeField]
+    public int damage;
+
+    public GameObject drop;
+
     private Transform target;
     private IState currentState;
     public Vector3 StartPosition;
@@ -31,6 +42,7 @@ public class Enemy : NPC
 
     protected override void Update()
     {
+        InitStats();
         currentState.Update();
         base.Update();
     }
@@ -39,6 +51,26 @@ public class Enemy : NPC
     {
         StartPosition = transform.position;
         ChangeState(new IdleState());
+    }
+
+    private void InitStats()
+    {
+        health.Initialize(healthValue, maxHealth);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag != "CircleBox")
+        {
+            Debug.Log(collision.tag);
+            Player player = collision.GetComponent<Player>();
+            if (player != null)
+            {
+                Debug.Log("Player collision - dmg");
+                player.damagePlayer(damage);
+            }
+        }
+
     }
 
 
@@ -59,6 +91,24 @@ public class Enemy : NPC
         currentState.Enter(this);
     }
 
+    private void CheckEnemyStatus()
+    {
+        if (healthValue <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
+    public void TakeDamage(int damage)
+    {
+        healthValue -= damage;
+        Debug.Log("Damage taken");
+        CheckEnemyStatus();
+    }
+
+    public void OnDestroy()
+    {
+        Instantiate(drop, transform.position, drop.transform.rotation);
+    }
 
 }

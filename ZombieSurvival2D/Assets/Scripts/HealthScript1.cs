@@ -21,7 +21,7 @@ public class HealthScript1 : MonoBehaviour
     {
         // Is this a shot?
 
-        Attack shot = otherCollider.gameObject.GetComponent<Attack>();
+        Attack2 shot = otherCollider.gameObject.GetComponent<Attack2>();
         if (shot != null)
         {
             // Avoid friendly fire

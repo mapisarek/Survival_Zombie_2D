@@ -66,6 +66,7 @@ public abstract class Character : MonoBehaviour
 
     public void Movement()
     {
+        if(this.gameObject.tag != "Enemy")
         rigidbody2D.velocity = direction.normalized * speed;
         
     }
