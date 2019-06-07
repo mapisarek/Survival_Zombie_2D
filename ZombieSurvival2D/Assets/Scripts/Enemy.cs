@@ -7,6 +7,17 @@ public class Enemy : NPC
 
     [SerializeField]
     private CanvasGroup healthGroup;
+    [SerializeField]
+    public Statistics health;
+    [SerializeField]
+    private float healthValue;
+    [SerializeField]
+    private float maxHealth;
+    [SerializeField]
+    public int damage;
+
+    public GameObject drop;
+
     private Transform target;
     private IState currentState;
     public Vector3 StartPosition;
