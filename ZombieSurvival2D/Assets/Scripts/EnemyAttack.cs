@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class EnemyAttack : Attack
 {
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.Log(collision.tag);
+        Player player = collision.GetComponent<Player>();
+        if (player != null)
+        {
+            Debug.Log("Player collision - dmg");
+            player.damagePlayer(damage);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
