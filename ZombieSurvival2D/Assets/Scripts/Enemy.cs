@@ -84,6 +84,11 @@ public class Enemy : NPC
         }
     }
 
-
+    public void TakeDamage(int damage)
+    {
+        healthValue -= damage;
+        Debug.Log("Damage taken");
+        CheckEnemyStatus();
+    }
 
 }
