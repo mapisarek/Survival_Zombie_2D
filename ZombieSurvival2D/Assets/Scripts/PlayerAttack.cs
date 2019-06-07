@@ -25,6 +25,7 @@ public class PlayerAttack : Attack
         {
             if (Input.GetKey(KeyCode.Space))
             {
+                Debug.Log("Dmg enemies");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
