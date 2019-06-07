@@ -42,6 +42,7 @@ public class Enemy : NPC
 
     protected override void Update()
     {
+        InitStats();
         currentState.Update();
         base.Update();
     }
