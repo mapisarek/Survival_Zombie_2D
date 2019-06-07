@@ -53,6 +53,11 @@ public class Enemy : NPC
         ChangeState(new IdleState());
     }
 
+    private void InitStats()
+    {
+        health.Initialize(healthValue, maxHealth);
+    }
+
 
     public override void TakeDamage(float damage)
     {
