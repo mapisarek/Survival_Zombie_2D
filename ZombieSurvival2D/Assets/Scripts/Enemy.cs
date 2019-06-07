@@ -76,6 +76,14 @@ public class Enemy : NPC
         currentState.Enter(this);
     }
 
+    private void CheckEnemyStatus()
+    {
+        if (healthValue <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 
 }
