@@ -152,7 +152,7 @@ public class PlayerStats : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D otherCollider)
     {
         // Is this a shot?
-        Attack shot = otherCollider.gameObject.GetComponent<Attack>();
+        Attack2 shot = otherCollider.gameObject.GetComponent<Attack2>();
         if (shot != null)
         {
             // Avoid friendly fire

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public int damage = 1;
-    public bool isEnemyShot = false;
+    [SerializeField]
+    protected float timeBtwAttack;
+    protected float startTimeBtwAttack;
+    [SerializeField]
+    public int damage;
 }

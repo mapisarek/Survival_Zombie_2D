@@ -186,5 +186,12 @@ public class Player : Character
             staminaValue += Time.deltaTime * staminaRegeneration;
         }
     }
-		
+
+    public void damagePlayer(int damage)
+    {
+        healthValue -= damage;
+        if (healthValue <= 0)
+            GameObject.Destroy(this);
+    }
+
 }
