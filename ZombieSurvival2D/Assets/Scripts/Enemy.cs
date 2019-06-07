@@ -91,4 +91,9 @@ public class Enemy : NPC
         CheckEnemyStatus();
     }
 
+    public void OnDestroy()
+    {
+        Instantiate(drop, transform.position, drop.transform.rotation);
+    }
+
 }
