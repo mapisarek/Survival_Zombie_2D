@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        
+        attackInRange();
     }
 
     private void OnDrawGizmosSelected()
