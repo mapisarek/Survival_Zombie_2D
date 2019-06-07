@@ -58,6 +58,21 @@ public class Enemy : NPC
         health.Initialize(healthValue, maxHealth);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag != "CircleBox")
+        {
+            Debug.Log(collision.tag);
+            Player player = collision.GetComponent<Player>();
+            if (player != null)
+            {
+                Debug.Log("Player collision - dmg");
+                player.damagePlayer(damage);
+            }
+        }
+
+    }
+
 
     public override void TakeDamage(float damage)
     {
