@@ -8,6 +8,12 @@ public class AttackTest
     [Test]
     public void PlayerIsAttacking_EnemiesInRange()
     {
-       
+
+    }
+
+    [Test]
+    public void EnemyIsAttacking_PlayerInRange()
+    {
+
     }
 }
