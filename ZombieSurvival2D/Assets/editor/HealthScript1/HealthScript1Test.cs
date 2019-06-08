@@ -20,6 +20,10 @@ namespace Tests
         [UnityTest]
         public IEnumerator HealthScript1TestWithEnumeratorPasses()
         {
+            var go = new GameObject();
+            go.AddComponent<Rigidbody>();
+            var originalPosition = go.transform.position.y;
+
 
 
 
