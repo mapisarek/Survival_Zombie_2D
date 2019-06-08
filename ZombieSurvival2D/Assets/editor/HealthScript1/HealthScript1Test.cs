@@ -3,26 +3,29 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEditor;
 
 namespace Tests
-{
+{   
     public class HealthScript1Test
     {
-        // A Test behaves as an ordinary method
+
         [Test]
         public void HealthScript1TestSimplePasses()
         {
-            // Use the Assert class to test conditions
+            var go = new GameObject("MyGameObject");
+            Assert.AreEqual("MyGameObject", go.name);
         }
 
-        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
-        // `yield return null;` to skip a frame.
         [UnityTest]
         public IEnumerator HealthScript1TestWithEnumeratorPasses()
         {
-            // Use the Assert class to test conditions.
-            // Use yield to skip a frame.
-            yield return null;
+
+
+
+
+
+
         }
     }
 }
