@@ -1,0 +1,6 @@
+﻿{
+    "name": "HealthScript1",
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}
