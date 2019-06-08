@@ -1,18 +1,13 @@
-﻿using System.Collections;
+﻿using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTest : MonoBehaviour
+public class AttackTest
 {
-    // Start is called before the first frame update
-    void Start()
+    [Test]
+    public void PlayerIsAttacking_EnemiesInRange()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       
     }
 }
