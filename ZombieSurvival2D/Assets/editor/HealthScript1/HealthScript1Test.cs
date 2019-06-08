@@ -25,7 +25,9 @@ namespace Tests
             var originalPosition = go.transform.position.y;
 
 
+            yield return new WaitForFixedUpdate();
 
+            Assert.AreNotEqual(originalPosition, go.transform.position.y);
 
 
 
