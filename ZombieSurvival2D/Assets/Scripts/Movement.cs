@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
 
 
-    float speed = 50;
+    public float speed = 50;
     private Rigidbody2D rig;
     public Animator m_Animator;
 

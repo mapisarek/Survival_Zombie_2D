@@ -6,16 +6,16 @@ using UnityEngine.TestTools;
 
 namespace Tests
 {
-    public class Test
+    public class HitTest
     {
         [Test]
-        public void TestSimplePasses()
+        public void HitTestSimplePasses()
         {
-
+            Movement movement = new Movement();
         }
 
         [UnityTest]
-        public IEnumerator TestWithEnumeratorPasses()
+        public IEnumerator HitTestWithEnumeratorPasses()
         {
             yield return null;
         }
