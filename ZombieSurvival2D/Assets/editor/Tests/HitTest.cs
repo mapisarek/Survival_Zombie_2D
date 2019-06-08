@@ -12,6 +12,7 @@ namespace Tests
         public void HitTestSimplePasses()
         {
             Movement movement = new Movement();
+            Assert.IsTrue( movement.speed==0);
         }
 
         [UnityTest]

@@ -2,5 +2,6 @@
 {
     internal class Movement
     {
+        internal double speed;
     }
 }
