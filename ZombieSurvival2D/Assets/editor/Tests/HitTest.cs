@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
+
 namespace Tests
 {
     public class HitTest
@@ -12,7 +13,7 @@ namespace Tests
         public void HitTestSimplePasses()
         {
             Movement movement = new Movement();
-            Assert.IsTrue( movement.speed==0);
+            Assert.IsTrue(movement.speed==0);
         }
 
         [UnityTest]

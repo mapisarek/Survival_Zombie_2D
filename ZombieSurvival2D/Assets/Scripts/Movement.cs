@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Movement : MonoBehaviour
 {
 
@@ -9,6 +10,15 @@ public class Movement : MonoBehaviour
     public float speed = 50;
     private Rigidbody2D rig;
     public Animator m_Animator;
+
+    public Movement(float speed, Rigidbody2D rig, Animator m_Animator)
+    {
+        this.speed = speed;
+        this.rig = rig;
+        this.m_Animator = m_Animator;
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
