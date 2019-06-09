@@ -8,8 +8,8 @@ public class NoiseTest
     [TestCase(1, 1, 1, 1, 1, 1)]
     [TestCase(0, 0, 2, 1, 1, 1)]
     [TestCase(0, 0, 0, 0, 0, 0)]
-    [TestCase(100, 5, 0, 0, 0, 0)]
-    [TestCase(1, 8, 5, 0.12, 0.69, 6)]
+    [TestCase(10,5, 0, 0, 0, 0)]
+    [TestCase(1, 8, 5, 1,0,6)]
 
     public void SeedIsGreatherOrEqualThanZero(int seed, float frequency, float amplitude, float lecunarity, float presistance, int octawes)
     {
@@ -23,7 +23,11 @@ public class NoiseTest
         Assert.GreaterOrEqual(octawes, 0);
     }
 
+    public void NoiseValueAreNotZero(int seed, float frequency, float amplitude, float lecunarity, float presistance, int octawes, float width, float height, int i, int j)
+    {
+        
+    }
 
-    
+
 
 }
