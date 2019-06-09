@@ -13,7 +13,7 @@ namespace Tests
         {
         }
 
-        public void PlayerStatsMax100(int maxHealth, int maxArmour, int maxStamina)
+        public void PlayerStatsMax100(int waitingForNextSpawn, int theCountdown, int animalAmount, int monstersAmount)
         {
 
         }
