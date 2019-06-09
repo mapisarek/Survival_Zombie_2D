@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 
 namespace Tests
 {
-    public class NewTestScript
+    public class Stamina_test
     {
         [Test]
         public void NewTestScriptSimplePasses()
