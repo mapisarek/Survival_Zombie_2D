@@ -21,7 +21,7 @@ namespace Tests
             Assert.AreEqual(maxStamina, 100);
         }
 
-        [TestCase(100,10,10,10,10,10,10,10,10,10,10,0)]
+        [TestCase(100,0,50,10,10,10,10)]
         public void PlayerStatsNotMinu(int currentHealth, int currentArmour, int currentStamina, int canRegenerate, int canRegenerateeat,int speed,int speeds)
         {
             var n = new Stats2(currentHealth, currentArmour, currentStamina, canRegenerate, canRegenerateeat, speed, speeds);
@@ -33,13 +33,17 @@ namespace Tests
             Assert.GreaterOrEqual(speed, 0);
             Assert.GreaterOrEqual(speeds, 0);
 
-
-
-
+        }
+        [TestCase()]
+        public void PlayerStatsNotMinu(int currentHealth, int currentArmour, int currentStamina)
+        {
+            var n = new Stats3(currentHealth, currentArmour, currentStamina);
+            Assert.LessOrEqual(currentHealth, 0);
+            Assert.LessOrEqual(currentArmour, 100);
+            Assert.LessOrEqual(currentStamina, 0);
 
 
         }
-
 
 
         [UnityTest]
