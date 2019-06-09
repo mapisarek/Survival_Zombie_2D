@@ -25,7 +25,11 @@ public class NoiseTest
 
     public void NoiseValueAreNotZero(int seed, float frequency, float amplitude, float lecunarity, float presistance, int octawes, float width, float height, int i, int j)
     {
-        
+        double noiseValueX = (i + seed) / width * frequency;
+        double noiseValueY = j / height * frequency * amplitude;
+
+        Assert.GreaterOrEqual(noiseValueX, 0);
+        Assert.GreaterOrEqual(noiseValueY, 0);
     }
 
 
