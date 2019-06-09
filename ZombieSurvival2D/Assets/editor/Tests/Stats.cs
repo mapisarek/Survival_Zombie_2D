@@ -1,8 +1,8 @@
 ﻿namespace Tests
 {
-    internal class Stats
+    internal class Stats2
     {
-        public Stats(int maxHealth, int maxArmour, int maxStamina)
+        public Stats2(int maxHealth, int maxArmour, int maxStamina)
         {
         }
     }

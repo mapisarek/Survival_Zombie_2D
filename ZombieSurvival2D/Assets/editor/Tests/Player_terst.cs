@@ -15,17 +15,17 @@ namespace Tests
         [TestCase(100,100,100)]
         public void PlayerStatsMax100(int maxHealth,int maxArmour,int maxStamina)
         {
-            var n = new Stats(maxHealth, maxArmour, maxStamina);
+            var n = new Stats2(maxHealth, maxArmour, maxStamina);
             Assert.AreEqual(maxHealth, 100);
             Assert.AreEqual(maxArmour, 100);
             Assert.AreEqual(maxStamina, 100);
         }
 
         [TestCase(100)]
-        public void PlayerStatsNotMinu()
+        public void PlayerStatsNotMinu(int currentHealth)
         {
-            var n = new Stats();
-            Assert.GreaterOrEqual(, 100);
+            var n = new Stats2(currentHealth);
+            Assert.GreaterOrEqual(currentHealth, 0);
 
         }
 
