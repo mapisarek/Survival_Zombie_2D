@@ -21,6 +21,15 @@ namespace Tests
             Assert.AreEqual(maxStamina, 100);
         }
 
+        [TestCase(100)]
+        public void PlayerStatsNotMinu()
+        {
+            var n = new Stats();
+            Assert.GreaterOrEqual(, 100);
+
+        }
+
+
 
         [UnityTest]
         public IEnumerator NewTestScriptWithEnumeratorPasses()
