@@ -13,6 +13,20 @@ namespace Tests
         {
         }
 
+
+
+
+
+
+
+        public void SeedIsGreatherOrEqualThanZero(int speed)
+        {
+            var n = new Movementx(speed);
+
+
+
+        }
+
         [UnityTest]
         public IEnumerator NewTestScriptWithEnumeratorPasses()
         {

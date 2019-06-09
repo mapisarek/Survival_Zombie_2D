@@ -69,6 +69,7 @@ public class PlayerStats : MonoBehaviour
 
     void Update()
     {
+
         if (canRegenerate > 0.0f)
         {
             canRegenerate -= Time.deltaTime;
