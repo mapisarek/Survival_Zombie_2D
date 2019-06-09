@@ -13,10 +13,13 @@ namespace Tests
         {
         }
 
-        public void monsterSpawn(int waitingForNextSpawn, int theCountdown, int animalAmount, int monstersAmount)
+        public void monsterSpawnNotZero(int waitingForNextSpawn, int theCountdown, int animalAmount, int monstersAmount)
         {
             var n = new Stats_monsterSpawn(waitingForNextSpawn, theCountdown, animalAmount, monstersAmount);
-
+            Assert.GreaterOrEqual(waitingForNextSpawn, 0);
+            Assert.GreaterOrEqual(theCountdown, 0);
+            Assert.GreaterOrEqual(animalAmount, 0);
+            Assert.GreaterOrEqual(monstersAmount, 0);
 
         }
 
