@@ -13,8 +13,10 @@ namespace Tests
         {
         }
 
-        public void PlayerStatsMax100(int waitingForNextSpawn, int theCountdown, int animalAmount, int monstersAmount)
+        public void monsterSpawn(int waitingForNextSpawn, int theCountdown, int animalAmount, int monstersAmount)
         {
+            var n = new Stats_monsterSpawn(waitingForNextSpawn, theCountdown, animalAmount, monstersAmount);
+
 
         }
 
