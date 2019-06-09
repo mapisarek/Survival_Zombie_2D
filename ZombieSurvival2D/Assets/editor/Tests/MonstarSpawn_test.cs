@@ -13,6 +13,8 @@ namespace Tests
         {
         }
         [TestCase(100, 10, 50, 10)]
+        [TestCase(22, 10, 50321, 12)]
+        [TestCase(11200, 321, 50, 3)]
         public void monsterSpawnNotZero(int waitingForNextSpawn, int theCountdown, int animalAmount, int monstersAmount)
         {
             var n = new Stats_monsterSpawn(waitingForNextSpawn, theCountdown, animalAmount, monstersAmount);
