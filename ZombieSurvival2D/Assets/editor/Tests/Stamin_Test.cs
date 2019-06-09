@@ -19,7 +19,7 @@ namespace Tests
 
         [TestCase(1)]
         [TestCase(12)]
-        [TestCase(0)]
+        [TestCase(1)]
 
 
 
@@ -27,7 +27,7 @@ namespace Tests
         {
             var n = new Movementx(speed);
 
-            Assert.GreaterOrEqual(speed, 0);
+            Assert.GreaterOrEqual(speed, 1);
 
         }
 
