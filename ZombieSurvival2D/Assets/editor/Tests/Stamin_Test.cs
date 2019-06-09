@@ -19,6 +19,9 @@ namespace Tests
 
         [TestCase(1)]
         [TestCase(12)]
+        [TestCase(0)]
+
+
 
         public void SpeedIsGreatherOrEqualThanZero(int speed)
         {
