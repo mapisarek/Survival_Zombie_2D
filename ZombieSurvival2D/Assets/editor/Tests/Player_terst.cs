@@ -12,12 +12,13 @@ namespace Tests
         public void NewTestScriptSimplePasses()
         {
         }
-
+        [TestCase(100,100,100)]
         public void PlayerStatsMax100(int maxHealth,int maxArmour,int maxStamina)
         {
             var n = new Stats(maxHealth, maxArmour, maxStamina);
-
-
+            Assert.AreEqual(maxHealth, 100);
+            Assert.AreEqual(maxArmour, 100);
+            Assert.AreEqual(maxStamina, 100);
         }
 
 
