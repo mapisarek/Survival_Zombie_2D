@@ -13,6 +13,14 @@ namespace Tests
         {
         }
 
+        public void PlayerStatsNotMinus()
+        {
+            var n = new Stats();
+
+
+        }
+
+
         [UnityTest]
         public IEnumerator NewTestScriptWithEnumeratorPasses()
         {
