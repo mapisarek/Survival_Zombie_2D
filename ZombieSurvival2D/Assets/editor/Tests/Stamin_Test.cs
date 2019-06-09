@@ -17,7 +17,7 @@ namespace Tests
 
 
 
-
+        [TestCase(1)]
 
         public void SeedIsGreatherOrEqualThanZero(int speed)
         {
