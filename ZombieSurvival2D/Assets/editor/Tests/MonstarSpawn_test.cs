@@ -12,7 +12,7 @@ namespace Tests
         public void NewTestScriptSimplePasses()
         {
         }
-
+        [TestCase(100, 10, 50, 10)]
         public void monsterSpawnNotZero(int waitingForNextSpawn, int theCountdown, int animalAmount, int monstersAmount)
         {
             var n = new Stats_monsterSpawn(waitingForNextSpawn, theCountdown, animalAmount, monstersAmount);
