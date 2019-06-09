@@ -19,7 +19,7 @@ namespace Tests
 
         [TestCase(1)]
 
-        public void SeedIsGreatherOrEqualThanZero(int speed)
+        public void SpeedIsGreatherOrEqualThanZero(int speed)
         {
             var n = new Movementx(speed);
 
