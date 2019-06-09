@@ -23,6 +23,9 @@ public class NoiseTest
         Assert.GreaterOrEqual(octawes, 0);
     }
 
+    [TestCase(1, 1, 1, 1, 1, 1, 1, 1, 1, 1)]
+    [TestCase(1000, 10, 1, 1, 1, 1, 500, 500, 1, 1)]
+    [TestCase(1, 8, 5,12, 6, 500, 500, 1, 1,1)]
     public void NoiseValueAreNotZero(int seed, float frequency, float amplitude, float lecunarity, float presistance, int octawes, float width, float height, int i, int j)
     {
         double noiseValueX = (i + seed) / width * frequency;
