@@ -23,7 +23,7 @@ namespace Tests
         {
             var n = new Movementx(speed);
 
-
+            Assert.GreaterOrEqual(speed, 0);
 
         }
 
