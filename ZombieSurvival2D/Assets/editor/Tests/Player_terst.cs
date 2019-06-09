@@ -38,9 +38,9 @@ namespace Tests
         public void PlayerStatsNotMinu(int currentHealth, int currentArmour, int currentStamina)
         {
             var n = new Stats3(currentHealth, currentArmour, currentStamina);
-            Assert.LessOrEqual(currentHealth, 0);
+            Assert.LessOrEqual(currentHealth, 100);
             Assert.LessOrEqual(currentArmour, 100);
-            Assert.LessOrEqual(currentStamina, 0);
+            Assert.LessOrEqual(currentStamina, 100);
 
 
         }
