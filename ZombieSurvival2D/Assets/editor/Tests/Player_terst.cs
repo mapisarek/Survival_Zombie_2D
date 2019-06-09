@@ -13,9 +13,9 @@ namespace Tests
         {
         }
 
-        public void PlayerStatsNotMinus()
+        public void PlayerStatsMax100(int maxHealth,int maxArmour,int maxStamina)
         {
-            var n = new Stats();
+            var n = new Stats(maxHealth, maxArmour, maxStamina);
 
 
         }
