@@ -34,7 +34,7 @@ namespace Tests
             Assert.GreaterOrEqual(speeds, 0);
 
         }
-        [TestCase()]
+        [TestCase(100,100,100)]
         public void PlayerStatsNotMinu(int currentHealth, int currentArmour, int currentStamina)
         {
             var n = new Stats3(currentHealth, currentArmour, currentStamina);
