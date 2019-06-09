@@ -35,7 +35,7 @@ namespace Tests
 
         }
         [TestCase(100,100,100)]
-        public void PlayerStatsNotMinu(int currentHealth, int currentArmour, int currentStamina)
+        public void PlayerStatsLessMax(int currentHealth, int currentArmour, int currentStamina)
         {
             var n = new Stats3(currentHealth, currentArmour, currentStamina);
             Assert.LessOrEqual(currentHealth, 100);

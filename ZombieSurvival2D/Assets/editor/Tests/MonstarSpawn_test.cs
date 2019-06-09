@@ -1,18 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
 
-public class MonstarSpawn_test : MonoBehaviour
+namespace Tests
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MonstarSpawn_test
     {
-        
-    }
+        [Test]
+        public void NewTestScriptSimplePasses()
+        {
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void PlayerStatsMax100(int maxHealth, int maxArmour, int maxStamina)
+        {
+
+        }
+
+
+
+
+        [UnityTest]
+        public IEnumerator NewTestScriptWithEnumeratorPasses()
+        {
+            yield return null;
+        }
     }
 }
