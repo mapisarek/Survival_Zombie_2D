@@ -9,7 +9,7 @@
             this.currentHealth = currentHealth;
         }
 
-        public Stats2(int maxHealth, int maxArmour, int maxStamina)
+        public Stats2(int maxHealth, int maxArmour, int maxStamina, int canRegenerate)
         {
         }
     }

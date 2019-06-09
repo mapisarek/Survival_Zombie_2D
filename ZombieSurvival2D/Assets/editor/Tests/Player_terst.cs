@@ -24,7 +24,7 @@ namespace Tests
         [TestCase(100)]
         public void PlayerStatsNotMinu(int currentHealth, int currentArmour, int currentStamina, int canRegenerate, int canRegenerateeat,int speed,int speeds)
         {
-            var n = new Stats2(currentHealth);
+            var n = new Stats2(currentHealth, currentArmour, currentStamina, canRegenerate, canRegenerateeat, speed, speeds);
             Assert.GreaterOrEqual(currentHealth, 0);
 
 
