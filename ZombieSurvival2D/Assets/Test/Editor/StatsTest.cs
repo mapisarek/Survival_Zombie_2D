@@ -20,6 +20,7 @@ public class StatsTest
 
     }
     [TestCase(100, 0)]
+    [TestCase(23, 321)]
     public void PlayerRegenNotMinu(int canRegenerate, int canRegenerateeat)
     {
         var n = new Stats2(canRegenerate, canRegenerateeat);
