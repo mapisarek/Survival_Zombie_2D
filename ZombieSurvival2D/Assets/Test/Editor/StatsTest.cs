@@ -30,7 +30,7 @@ public class StatsTest
 
     }
 
-
+    [TestCase(0, 12)]
     public void PlayerSpeedNotMinu(double speed,double speeds)
     {
         var n = new Stats3(speed, speeds);
