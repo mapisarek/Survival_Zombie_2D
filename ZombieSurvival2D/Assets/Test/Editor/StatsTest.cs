@@ -19,9 +19,9 @@ public class StatsTest
 
 
     }
-
-    public void PlayerRegenNotMinu()
+    public void PlayerRegenNotMinu(int canRegenerate, int canRegenerateeat)
     {
+        var n = new Stats2(canRegenerate,  canRegenerateeat);
 
 
 
