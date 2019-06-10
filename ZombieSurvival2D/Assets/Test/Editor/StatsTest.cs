@@ -33,8 +33,9 @@ public class StatsTest
 
     public void PlayerSpeedNotMinu(double speed,double speeds)
     {
-        var n = new Stats3(speed, speed);
-
+        var n = new Stats3(speed, speeds);
+        Assert.GreaterOrEqual(speed, 0);
+        Assert.GreaterOrEqual(speeds, 0);
 
     }
 
