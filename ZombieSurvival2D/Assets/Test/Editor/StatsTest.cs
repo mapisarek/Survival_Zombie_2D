@@ -6,5 +6,14 @@ using UnityEngine.TestTools;
 
 public class StatsTest 
 {
+    [Test]
+    public void PlayerStatsNotMinu()
+    {
+
+
+
+    }
+
+
 
 }
