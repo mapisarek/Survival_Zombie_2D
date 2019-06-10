@@ -30,12 +30,13 @@ public class StatsTest
 
     }
 
-    [TestCase(0, 12)]
+    [TestCase(2, 12)]
     public void PlayerSpeedNotMinu(double speed,double speeds)
     {
         var n = new Stats3(speed, speeds);
-        Assert.GreaterOrEqual(speed, 0);
-        Assert.GreaterOrEqual(speeds, 0);
+        Assert.Greater(speed, 0);
+        Assert.Greater(speeds, 0);
+
 
     }
 
