@@ -7,6 +7,11 @@ using UnityEngine.TestTools;
 
 public class HealtTest 
 {
+    [Test]
+    public void HeltMax_Is_max()
+    {
+
+    }
 
 
 
