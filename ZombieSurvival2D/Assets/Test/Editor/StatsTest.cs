@@ -21,8 +21,9 @@ public class StatsTest
     }
     public void PlayerRegenNotMinu(int canRegenerate, int canRegenerateeat)
     {
-        var n = new Stats2(canRegenerate,  canRegenerateeat);
-
+        var n = new Stats2(canRegenerate,  canRegenerate);
+        Assert.GreaterOrEqual(canRegenerate, 0);
+        Assert.GreaterOrEqual(canRegenerate, 0);
 
 
     }
