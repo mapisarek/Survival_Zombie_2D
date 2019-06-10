@@ -31,6 +31,12 @@ public class StatsTest
     }
 
 
+    public void PlayerSpeedNotMinu()
+    {
+
+
+
+    }
 
 
 
