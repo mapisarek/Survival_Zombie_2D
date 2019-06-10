@@ -10,7 +10,9 @@ public class StatsTest
     public void PlayerStatsNotMinu(int currentHealth, int currentArmour, int currentStamina)
     {
         var n = new Stats1(currentHealth, currentArmour, currentStamina);
-
+        Assert.GreaterOrEqual(currentHealth, 0);
+        Assert.GreaterOrEqual(currentArmour, 0);
+        Assert.GreaterOrEqual(currentStamina, 0);
 
 
     }
