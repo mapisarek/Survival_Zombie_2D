@@ -11,7 +11,9 @@ public class HealtTest
     public void HeltMax_Is_max(int maxHealth,int maxArmour, int maxStamina)
     {
         var n = new Stats(maxHealth, maxArmour, maxStamina);
-
+        Assert.AreEqual(maxHealth, 100);
+        Assert.AreEqual(maxArmour, 100);
+        Assert.AreEqual(maxStamina, 100);
 
 
     }
