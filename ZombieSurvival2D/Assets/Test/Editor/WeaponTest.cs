@@ -14,7 +14,12 @@ public class WeaponTest
         Assert.GreaterOrEqual(fast_shot, 0);
         Assert.GreaterOrEqual(mag_cap, 0);
         Assert.GreaterOrEqual(num_mag, 0);
-
+        Assert.GreaterOrEqual(damage, 0);
+        Assert.GreaterOrEqual(fast_bulest, 0);
+        Assert.GreaterOrEqual(canShot, 0);
+        Assert.GreaterOrEqual(canAmo, 0);
+        Assert.GreaterOrEqual(amo, 0);
+        Assert.GreaterOrEqual(magazin, 0);
 
 
 
