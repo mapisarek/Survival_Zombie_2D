@@ -6,6 +6,7 @@ public class WeaponTest
 {
     [Test]
     [TestCase(10, 10, 50, 10, 10, 50, 10, 10, 50, 10)]
+    [TestCase(102, 120, 520, 120, 120, 250, 102, 120, 520, 102)]
     public void WeaponStatsNotMinu(double rel_time, double fast_shot, double mag_cap, double num_mag, 
         double damage, double fast_bulest, double canShot, double canAmo, double amo, double magazin)
     {
