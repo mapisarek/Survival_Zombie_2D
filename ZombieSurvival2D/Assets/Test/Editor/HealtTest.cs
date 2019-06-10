@@ -8,6 +8,7 @@ using UnityEngine.TestTools;
 public class HealtTest 
 {
     [Test]
+    [TestCase(100, 100, 100)]
     public void HeltMax_Is_max(int maxHealth,int maxArmour, int maxStamina)
     {
         var n = new Stats(maxHealth, maxArmour, maxStamina);
