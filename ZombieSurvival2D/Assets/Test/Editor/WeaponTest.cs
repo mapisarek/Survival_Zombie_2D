@@ -10,6 +10,17 @@ public class WeaponTest
     {
         var n = new weapon(rel_time, fast_shot, mag_cap, num_mag,
            damage,  fast_bulest,  canShot,  canAmo,  amo,  magazin);
+        Assert.GreaterOrEqual(rel_time, 0);
+        Assert.GreaterOrEqual(fast_shot, 0);
+        Assert.GreaterOrEqual(mag_cap, 0);
+        Assert.GreaterOrEqual(num_mag, 0);
+
+
+
+
+
+
+
     }
 
 
