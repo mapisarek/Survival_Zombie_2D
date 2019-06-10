@@ -31,9 +31,9 @@ public class StatsTest
     }
 
 
-    public void PlayerSpeedNotMinu()
+    public void PlayerSpeedNotMinu(double speed,double speeds)
     {
-
+        var n = new Stats3(speed, speed);
 
 
     }
