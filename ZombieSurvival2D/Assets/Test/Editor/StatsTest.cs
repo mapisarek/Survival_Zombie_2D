@@ -20,6 +20,15 @@ public class StatsTest
 
     }
 
+    public void PlayerRegenNotMinu()
+    {
+
+
+
+    }
+
+
+
 
 
 }
