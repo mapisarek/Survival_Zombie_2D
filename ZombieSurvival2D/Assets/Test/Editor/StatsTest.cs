@@ -7,6 +7,7 @@ using UnityEngine.TestTools;
 public class StatsTest 
 {
     [Test]
+    [TestCase(100, 0, 50)]
     public void PlayerStatsNotMinu(int currentHealth, int currentArmour, int currentStamina)
     {
         var n = new Stats1(currentHealth, currentArmour, currentStamina);
