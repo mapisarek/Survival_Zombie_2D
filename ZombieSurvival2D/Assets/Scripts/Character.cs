@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
-public abstract class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour, ICharacter
 {
     [SerializeField]
     private float speed;
@@ -13,7 +13,7 @@ public abstract class Character : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
     protected bool IsAttacking = false;
 
-    public bool IsMoving 
+    public bool IsMoving
     {
         get
         {
@@ -66,9 +66,9 @@ public abstract class Character : MonoBehaviour
 
     public void Movement()
     {
-        if(this.gameObject.tag != "Enemy")
-        rigidbody2D.velocity = direction.normalized * speed;
-        
+        if (this.gameObject.tag != "Enemy")
+            rigidbody2D.velocity = direction.normalized * speed;
+
     }
 
     public void HandleLayer()
@@ -90,7 +90,7 @@ public abstract class Character : MonoBehaviour
     public void AnimationMovement(Vector3 direction)
     {
         ActivateLayer("WalkLayer");
-        
+
         animator.SetFloat("x", direction.x);
         animator.SetFloat("y", direction.y);
     }
@@ -104,7 +104,7 @@ public abstract class Character : MonoBehaviour
         }
 
         animator.SetLayerWeight(animator.GetLayerIndex(layerName), 1);
-       
+
     }
 
     public virtual void TakeDamage(float damage)
@@ -112,8 +112,8 @@ public abstract class Character : MonoBehaviour
         //health.CurrentValue -= damage;
         //if(health.CurrentValue <= 0)
         //{
-         //   animator.SetTrigger("die");
+        //   animator.SetTrigger("die");
         //}
     }
-    
+
 }

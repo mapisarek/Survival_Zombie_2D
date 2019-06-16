@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : NPC
+public class Enemy : NPC, IEnemy
 {
-
     [SerializeField]
     private CanvasGroup healthGroup;
     [SerializeField]
@@ -15,6 +14,19 @@ public class Enemy : NPC
     private float maxHealth;
     [SerializeField]
     public int damage;
+    private Collider2D collider;
+    
+    public Collider2D Collider2D
+    {
+        get
+        {
+            return collider;
+        }
+        set
+        {
+            collider = value;
+        }
+    }
 
     public GameObject drop;
 
@@ -35,6 +47,9 @@ public class Enemy : NPC
         }
     }
 
+    public float HealthValue { get => healthValue; set => healthValue = value; }
+    public Collider2D Collider { get => collider; set => collider = value; }
+    
     protected override void Start()
     {
         base.Start();
@@ -44,6 +59,7 @@ public class Enemy : NPC
     {
         InitStats();
         currentState.Update();
+        CheckEnemyStatus();
         base.Update();
     }
 
@@ -82,7 +98,7 @@ public class Enemy : NPC
 
     public void ChangeState(IState newState)
     {
-        if(currentState != null)
+        if (currentState != null)
         {
             currentState.Exit();
         }
@@ -91,11 +107,11 @@ public class Enemy : NPC
         currentState.Enter(this);
     }
 
-    private void CheckEnemyStatus()
+    public void CheckEnemyStatus()
     {
         if (healthValue <= 0)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 
