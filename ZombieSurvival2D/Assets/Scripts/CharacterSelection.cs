@@ -62,10 +62,11 @@ public class CharacterSelection : MonoBehaviour
         characterList[index].SetActive(true);
     }
 
+    
     public void ConfirmButton()
     {
         PlayerPrefs.SetInt("CharacterSelected", index);
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("GameScene");
         GetUserNickname();
     }
 

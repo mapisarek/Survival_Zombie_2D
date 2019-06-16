@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Noise
 
 {
@@ -23,7 +24,10 @@ public class Noise
         this.lecunarity = lecunarity;
         this.presistance = presistance;
         this.octawes = octawes;
+     
     }
+
+  
 
     public float[,] GetNosiseValues(int width, int height)
     {

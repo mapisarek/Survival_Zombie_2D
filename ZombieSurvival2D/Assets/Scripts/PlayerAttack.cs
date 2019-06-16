@@ -7,10 +7,38 @@ public class PlayerAttack : Attack
     public Transform attackPos;
     public float attackRange;
     public LayerMask whatIsEnemies;
+    IEnemy[] enemies;
+    Collider2D[] enemiesToDamage;
+    PlayerAttackHandler playerAttackHandler;
+    public bool keyPressed;
+
+    private void Awake()
+    {
+        playerAttackHandler = new PlayerAttackHandler();
+    }
 
     void Update()
     {
-        attackInRange();
+         DetectEnemiesAround();
+    }
+
+    private void FixedUpdate()
+    {
+        keyPressed = Input.GetKey(KeyCode.Space);
+    }
+
+
+    public void DetectEnemiesAround()
+    {
+        enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+        if (enemiesToDamage.Length > 0)
+        {
+            foreach (var item in enemiesToDamage)
+            {
+                var enemy = item.GetComponent<IEnemy>();
+                playerAttackHandler.attackInRange(enemy, damage, timeBtwAttack, startTimeBtwAttack, keyPressed);
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -19,20 +47,23 @@ public class PlayerAttack : Attack
         Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 
-    private void attackInRange()
+}
+
+public class PlayerAttackHandler
+{
+
+    public void attackInRange(IEnemy enemiesToDamage, int damage, float timeBtwAttack, float startTimeBtwAttack, bool input)
     {
         if (timeBtwAttack <= 0)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (input)
             {
-                Debug.Log("Dmg enemies");
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
+                if (damage > 0)
                 {
-                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                    var enemy = enemiesToDamage;
+                    enemy.HealthValue -= damage;                    
                 }
             }
-
             timeBtwAttack = startTimeBtwAttack;
         }
         else
@@ -40,5 +71,6 @@ public class PlayerAttack : Attack
             timeBtwAttack -= Time.deltaTime;
         }
     }
-    
+
 }
+
