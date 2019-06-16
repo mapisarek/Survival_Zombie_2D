@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Statistics : MonoBehaviour
+public class Statistics : MonoBehaviour, IStatistics
 {
     [SerializeField]
     private float lerpSpeed;
@@ -11,6 +11,7 @@ public class Statistics : MonoBehaviour
     private float currentFill;
     public float InitMaxValue { get; set; }
     private float currentValue;
+    StatisticsInitalizer statisticsInitalizer;
 
 
     public float CurrentValue
@@ -25,7 +26,7 @@ public class Statistics : MonoBehaviour
             {
                 currentValue = InitMaxValue;
             }
-            else if(value < 0)
+            else if (value < 0)
             {
                 currentValue = 0;
             }
@@ -37,13 +38,18 @@ public class Statistics : MonoBehaviour
         }
     }
 
-    
+    public float CurrentFill { get => currentFill; set => currentFill = value; }
+
     private void Start()
     {
         content = GetComponent<Image>();
     }
 
-    
+    private void Awake()
+    {
+        statisticsInitalizer = new StatisticsInitalizer();
+    }
+
     public void Initialize(float currentValue, float maxValue)
     {
         InitMaxValue = maxValue;
@@ -58,4 +64,24 @@ public class Statistics : MonoBehaviour
         }
     }
 }
- 
+
+public class StatisticsInitalizer
+{
+    public void Initalize(float currentValue, float maxValue, IStatistics statistics)
+    {
+        if (currentValue <= maxValue)
+        {
+            statistics.CurrentValue = currentValue;
+            statistics.InitMaxValue = maxValue;
+            if (statistics.CurrentValue <= 0)
+            {
+                statistics.CurrentValue = 0;
+            }
+        }
+        else
+        {
+            statistics.CurrentValue = maxValue;
+            statistics.InitMaxValue = maxValue;
+        }
+    }
+}
