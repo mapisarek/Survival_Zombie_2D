@@ -41,8 +41,11 @@ public class AttackTest
 
 
     [Test]
+    //Damage 1
     [TestCase(1)]
+    //Damage 50
     [TestCase(50)]
+    //Damage 100
     [TestCase(100)]
     public void EnemyIsAttacking_PlayerInRange(int damage)
     {
@@ -54,4 +57,23 @@ public class AttackTest
         enemyAttackHandler.PlayerEnteredHandler(player, damage);
         Assert.AreNotEqual(100, player.HealthValue);
     }
+
+    [Test]
+    //Damage 100
+    [TestCase(100)]
+    //Damage 500
+    [TestCase(500)]
+    //Damage 1000
+    [TestCase(1000)]
+    public void EnemyIsAttacking_PlayerHealthBelowZero(int damage)
+    {
+        EnemyAttackHandler enemyAttackHandler = new EnemyAttackHandler();
+        IPlayer player = Substitute.For<IPlayer>();
+        player.HealthValue = 100;
+        //Health cant be below 0
+        enemyAttackHandler.PlayerEnteredHandler(player, damage);
+        Assert.AreEqual(0, player.HealthValue);
+    }
+
+
 }
