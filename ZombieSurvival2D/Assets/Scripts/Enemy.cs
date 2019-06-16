@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : NPC
+public class Enemy : NPC, IEnemy
 {
     [SerializeField]
     private CanvasGroup healthGroup;
