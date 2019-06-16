@@ -15,8 +15,7 @@ public class Enemy : NPC, IEnemy
     [SerializeField]
     public int damage;
     private Collider2D collider;
-    private GameObject gameObject;
-
+    
     public Collider2D Collider2D
     {
         get
@@ -50,8 +49,7 @@ public class Enemy : NPC, IEnemy
 
     public float HealthValue { get => healthValue; set => healthValue = value; }
     public Collider2D Collider { get => collider; set => collider = value; }
-    public GameObject GameObject { get => gameObject; set => gameObject = value; }
-
+    
     protected override void Start()
     {
         base.Start();
@@ -61,6 +59,7 @@ public class Enemy : NPC, IEnemy
     {
         InitStats();
         currentState.Update();
+        CheckEnemyStatus();
         base.Update();
     }
 
@@ -112,7 +111,7 @@ public class Enemy : NPC, IEnemy
     {
         if (healthValue <= 0)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 

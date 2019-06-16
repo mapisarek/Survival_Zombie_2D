@@ -19,10 +19,13 @@ public class PlayerAttack : Attack
 
     void Update()
     {
-        keyPressed = Input.GetKeyDown(KeyCode.Space);
-        DetectEnemiesAround();
+         DetectEnemiesAround();
     }
 
+    private void FixedUpdate()
+    {
+        keyPressed = Input.GetKey(KeyCode.Space);
+    }
 
 
     public void DetectEnemiesAround()
@@ -58,8 +61,7 @@ public class PlayerAttackHandler
                 if (damage > 0)
                 {
                     var enemy = enemiesToDamage;
-                    enemy.HealthValue -= damage;
-
+                    enemy.HealthValue -= damage;                    
                 }
             }
             timeBtwAttack = startTimeBtwAttack;

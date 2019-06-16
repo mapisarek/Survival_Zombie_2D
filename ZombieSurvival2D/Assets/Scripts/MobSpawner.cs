@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MobSpawner : MonoBehaviour, IMobSpawner
 {
+    [SerializeField]
     private GameObject[] animals;
     private GameObject[] monsters;
 
@@ -13,12 +14,16 @@ public class MobSpawner : MonoBehaviour, IMobSpawner
     private float animalAmount = 15;
     public float monstersAmount = 15;
 
+    [SerializeField]
     [Header("(X) Spawn Range")]
     private float xMin;
+    [SerializeField]
     private float xMax;
 
     [Header("(Y) Spawn Range")]
+    [SerializeField]
     private float yMin;
+    [SerializeField]
     private float yMax;
 
     private float animalCount;
@@ -64,8 +69,6 @@ public class MobSpawner : MonoBehaviour, IMobSpawner
         }
 
     }
-
-
 
 }
 

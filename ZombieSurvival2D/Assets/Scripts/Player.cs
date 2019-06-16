@@ -119,6 +119,7 @@ public class Player : Character, IPlayer
         basicSetup();
         InputKeys();
         InputActionKeys();
+        checkPlayerStatus();
         base.Update();
     }
 
@@ -242,6 +243,14 @@ public class Player : Character, IPlayer
         healthValue -= damage;
         if (healthValue <= 0)
             GameObject.Destroy(this);
+    }
+
+    public void checkPlayerStatus()
+    {
+        if(healthValue <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
