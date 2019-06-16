@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : Character
 {
     Camera cam;
+    PlayerMovementController playerMovement;
 
     [SerializeField]
     protected Statistics health;
@@ -28,8 +29,8 @@ public class Player : Character
 
     private float basicSpeed;
     private float runSpeed;
-	private float Timer;
-	private bool isRunning;
+    private float Timer;
+    private bool isRunning;
 
 
     [SerializeField]
@@ -40,8 +41,54 @@ public class Player : Character
     private float staminaRegeneration;
 
     public Interactable focus;
-  
-	
+
+    public float HealthValue
+    {
+        get
+        {
+            return healthValue;
+        }
+
+        set
+        {
+            healthValue = value;
+        }
+    }
+
+    public float ArmorValue
+    {
+        get
+        {
+            return armorValue;
+        }
+
+        set
+        {
+            armorValue = value;
+        }
+    }
+
+    public float StaminaValue
+    {
+        get
+        {
+            return staminaValue;
+        }
+
+        set
+        {
+            staminaValue = value;
+        }
+    }
+
+    public Camera Cam { get => cam; set => cam = value; }
+    public bool IsRunning { get => isRunning; set => isRunning = value; }
+
+    private void Awake()
+    {
+        playerMovement = new PlayerMovementController();
+    }
+
     protected override void Start()
     {
         cam = Camera.main;
@@ -64,35 +111,65 @@ public class Player : Character
         basicSpeed = Speed;
         runSpeed = basicSpeed * boost;
     }
-        
+
     protected override void Update()
     {
         InitializeStatsValues();
         Timer += Time.deltaTime;
-		basicSetup();
+        basicSetup();
         InputKeys();
-        //health.CurrentValue = 100;
+        InputActionKeys();
         base.Update();
     }
 
-    private void InputKeys()
+    public void InputKeys()
     {
         Direction = Vector3.zero;
 
+        if (Input.GetKey(KeyCode.W))
+        {
+            Direction += Vector3.up;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            Direction += Vector3.left;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            Direction += Vector3.down;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            Direction += Vector3.right;
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (StaminaValue > 0)
+                IsRunning = true;
+            if (StaminaValue < 0)
+                IsRunning = false;
+        }
+        else
+        {
+            IsRunning = false;
+        }
+    }
+
+    private void InputActionKeys()
+    {
         if (Input.GetMouseButtonDown(1))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray,out hit, 100))
+            if (Physics.Raycast(ray, out hit, 100))
             {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if(interactable != null)
+                if (interactable != null)
                 {
                     SetFocus(interactable);
                 }
             }
         }
-
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -100,39 +177,8 @@ public class Player : Character
             RaycastHit hit;
             RemoveFocus();
         }
-
-        if (Input.GetKey(KeyCode.W))
-        {
-            Direction += Vector3.up;
-            RemoveFocus();
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            Direction += Vector3.left;
-            RemoveFocus();
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            Direction += Vector3.down;
-            RemoveFocus();
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            Direction += Vector3.right;
-            RemoveFocus();
-        }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            if(staminaValue > 0)
-			isRunning = true;
-            if (staminaValue < 0)
-                isRunning = false;
-        }
-		else{
-			isRunning = false;
-		}
-        
     }
+
 
     // Set our focus to a new focus
     void SetFocus(Interactable newFocus)
@@ -159,29 +205,33 @@ public class Player : Character
         focus = null;
     }
 
-    private void basicSetup(){
-		if(!isRunning){
-			Speed = basicSpeed;
-			staminaRegen();
-		}
-		if(isRunning){
-		Speed = runSpeed;
-        if(IsMoving)
-        burnStamina();
-		}
-	}
-	
-	private void burnStamina(){
-	 if(staminaValue > 0)
-            {
+    private void basicSetup()
+    {
+        if (!isRunning)
+        {
+            Speed = basicSpeed;
+            staminaRegen();
+        }
+        if (isRunning)
+        {
+            Speed = runSpeed;
+            if (IsMoving)
+                burnStamina();
+        }
+    }
+
+    private void burnStamina()
+    {
+        if (staminaValue > 0)
+        {
             staminaValue -= Time.deltaTime * staminaWaste;
             Timer = 0;
-			}
-	}
-	
+        }
+    }
+
     public void staminaRegen()
     {
-        if(Timer > 5 && staminaValue <= maxStamina)
+        if (Timer > 5 && staminaValue <= maxStamina)
         {
             staminaValue += Time.deltaTime * staminaRegeneration;
         }
@@ -194,4 +244,41 @@ public class Player : Character
             GameObject.Destroy(this);
     }
 
+}
+
+public class PlayerMovementController
+{
+    public void InputKeys(ICharacter character, IPlayer player,
+        bool w, bool s, bool a, bool d, bool shift)
+    {
+        //direction = Vector3.zero;
+
+        if (w)
+        {
+            character.Direction += Vector3.up;
+        }
+        if (a)
+        {
+            character.Direction += Vector3.left;
+        }
+        if (s)
+        {
+            character.Direction += Vector3.down;
+        }
+        if (d)
+        {
+            character.Direction += Vector3.right;
+        }
+        if (shift)
+        {
+            if (player.StaminaValue > 0)
+                player.IsRunning = true;
+            if (player.StaminaValue < 0)
+                player.IsRunning = false;
+        }
+        else
+        {
+            player.IsRunning = false;
+        }
+    }
 }
