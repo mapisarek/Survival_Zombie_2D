@@ -41,8 +41,17 @@ public class AttackTest
 
 
     [Test]
-    public void EnemyIsAttacking_PlayerInRange()
+    [TestCase(1)]
+    [TestCase(50)]
+    [TestCase(100)]
+    public void EnemyIsAttacking_PlayerInRange(int damage)
     {
-
+        EnemyAttackHandler enemyAttackHandler = new EnemyAttackHandler();
+        IPlayer player = Substitute.For<IPlayer>();
+        player.HealthValue = 100;
+        //Theres player in range
+        Assert.IsNotNull(player);
+        enemyAttackHandler.PlayerEnteredHandler(player, damage);
+        Assert.AreNotEqual(100, player.HealthValue);
     }
 }

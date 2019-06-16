@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character
+public class Player : Character, IPlayer
 {
     Camera cam;
     PlayerMovementController playerMovement;
