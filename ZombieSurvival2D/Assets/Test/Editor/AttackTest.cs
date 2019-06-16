@@ -7,6 +7,23 @@ using NUnit;
 
 public class AttackTest
 {
+    IEnemy enemy;
+    PlayerAttackHandler playerAttackHandler;
+    IPlayer player;
+    EnemyAttackHandler enemyAttackHandler;
+
+    [SetUp]
+    public void Init()
+    {
+        playerAttackHandler = new PlayerAttackHandler();
+        enemy = Substitute.For<IEnemy>();
+        enemy.HealthValue = 100;
+        enemyAttackHandler = new EnemyAttackHandler();
+        player = Substitute.For<IPlayer>();
+        player.HealthValue = 100;
+    }
+
+
     [Test]
     //Enemy got dmg -10hp
     [TestCase(10, 0, 0, true)]
@@ -14,9 +31,6 @@ public class AttackTest
     [TestCase(10, -5, -5, true)]
     public void PlayerIsAttacking_EnemiesInRange(int damage, float timeBtwAttk, float startTimeAttk, bool input)
     {
-        PlayerAttackHandler playerAttackHandler = new PlayerAttackHandler();
-        IEnemy enemy = Substitute.For<IEnemy>();
-        enemy.HealthValue = 100;
         Assert.IsNotNull(enemy);
         playerAttackHandler.attackInRange(enemy, damage, timeBtwAttk, startTimeAttk, input);
         Assert.AreEqual(90, enemy.HealthValue);
@@ -31,9 +45,6 @@ public class AttackTest
     [TestCase(10, 5, 5, true)]
     public void PlayerCantAttack_EnemiesInRange(int damage, float timeBtwAttk, float startTimeAttk, bool input)
     {
-        PlayerAttackHandler playerAttackHandler = new PlayerAttackHandler();
-        IEnemy enemy = Substitute.For<IEnemy>();
-        enemy.HealthValue = 100;
         playerAttackHandler.attackInRange(enemy, damage, timeBtwAttk, startTimeAttk, input);
         Assert.IsNotNull(enemy);
         Assert.AreEqual(100, enemy.HealthValue);
@@ -49,9 +60,6 @@ public class AttackTest
     [TestCase(100)]
     public void EnemyIsAttacking_PlayerInRange(int damage)
     {
-        EnemyAttackHandler enemyAttackHandler = new EnemyAttackHandler();
-        IPlayer player = Substitute.For<IPlayer>();
-        player.HealthValue = 100;
         //Theres player in range
         Assert.IsNotNull(player);
         enemyAttackHandler.PlayerEnteredHandler(player, damage);
@@ -67,9 +75,6 @@ public class AttackTest
     [TestCase(1000)]
     public void EnemyIsAttacking_PlayerHealthEqualsZero(int damage)
     {
-        EnemyAttackHandler enemyAttackHandler = new EnemyAttackHandler();
-        IPlayer player = Substitute.For<IPlayer>();
-        player.HealthValue = 100;
         //Health cant be below 0
         enemyAttackHandler.PlayerEnteredHandler(player, damage);
         Assert.AreEqual(0, player.HealthValue);
@@ -81,9 +86,6 @@ public class AttackTest
     [TestCase(-0)]
     public void EnemyIsAttacking_MinusDamage(int damage)
     {
-        EnemyAttackHandler enemyAttackHandler = new EnemyAttackHandler();
-        IPlayer player = Substitute.For<IPlayer>();
-        player.HealthValue = 100;
         enemyAttackHandler.PlayerEnteredHandler(player, damage);
         Assert.AreEqual(100, player.HealthValue);
     }
