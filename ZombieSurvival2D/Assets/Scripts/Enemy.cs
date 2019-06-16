@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : NPC
 {
-
     [SerializeField]
     private CanvasGroup healthGroup;
     [SerializeField]
@@ -15,6 +14,20 @@ public class Enemy : NPC
     private float maxHealth;
     [SerializeField]
     public int damage;
+    private Collider2D collider;
+    private GameObject gameObject;
+
+    public Collider2D Collider2D
+    {
+        get
+        {
+            return collider;
+        }
+        set
+        {
+            collider = value;
+        }
+    }
 
     public GameObject drop;
 
@@ -34,6 +47,10 @@ public class Enemy : NPC
             target = value;
         }
     }
+
+    public float HealthValue { get => healthValue; set => healthValue = value; }
+    public Collider2D Collider { get => collider; set => collider = value; }
+    public GameObject GameObject { get => gameObject; set => gameObject = value; }
 
     protected override void Start()
     {
@@ -82,7 +99,7 @@ public class Enemy : NPC
 
     public void ChangeState(IState newState)
     {
-        if(currentState != null)
+        if (currentState != null)
         {
             currentState.Exit();
         }
@@ -91,7 +108,7 @@ public class Enemy : NPC
         currentState.Enter(this);
     }
 
-    private void CheckEnemyStatus()
+    public void CheckEnemyStatus()
     {
         if (healthValue <= 0)
         {
