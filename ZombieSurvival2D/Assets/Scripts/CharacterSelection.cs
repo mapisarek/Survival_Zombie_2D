@@ -65,7 +65,7 @@ public class CharacterSelection : MonoBehaviour
     public void ConfirmButton()
     {
         PlayerPrefs.SetInt("CharacterSelected", index);
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("GameScene");
         GetUserNickname();
     }
 
