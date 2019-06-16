@@ -65,7 +65,7 @@ public class AttackTest
     [TestCase(500)]
     //Damage 1000
     [TestCase(1000)]
-    public void EnemyIsAttacking_PlayerHealthBelowZero(int damage)
+    public void EnemyIsAttacking_PlayerHealthEqualsZero(int damage)
     {
         EnemyAttackHandler enemyAttackHandler = new EnemyAttackHandler();
         IPlayer player = Substitute.For<IPlayer>();
@@ -75,5 +75,16 @@ public class AttackTest
         Assert.AreEqual(0, player.HealthValue);
     }
 
-
+    [Test]
+    //Minus dmg 50
+    [TestCase(-50)]
+    [TestCase(-0)]
+    public void EnemyIsAttacking_MinusDamage(int damage)
+    {
+        EnemyAttackHandler enemyAttackHandler = new EnemyAttackHandler();
+        IPlayer player = Substitute.For<IPlayer>();
+        player.HealthValue = 100;
+        enemyAttackHandler.PlayerEnteredHandler(player, damage);
+        Assert.AreEqual(100, player.HealthValue);
+    }
 }
