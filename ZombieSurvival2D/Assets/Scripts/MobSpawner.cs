@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MobSpawner : MonoBehaviour
+public class MobSpawner : MonoBehaviour, IMobSpawner
 {
     private GameObject[] animals;
     private GameObject[] monsters;
