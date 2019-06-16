@@ -5,15 +5,36 @@ using UnityEngine;
 public class EnemyAttack : Attack
 {
 
+    EnemyAttackHandler enemyAttackHandler;
+
+    private void Awake()
+    {
+        enemyAttackHandler = new EnemyAttackHandler();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
-        Player player = collision.GetComponent<Player>();
+        IPlayer player = collision.GetComponent<IPlayer>();
         if (player != null)
         {
-            Debug.Log("Player collision - dmg");
-            player.damagePlayer(damage);
+            enemyAttackHandler.PlayerEnteredHandler(player, this.damage);
         }
     }
 
+}
+
+public class EnemyAttackHandler
+{
+
+    public void PlayerEnteredHandler(IPlayer player, int damage)
+    {
+        if (player != null)
+        {
+            if (player.HealthValue > 0 && damage > 0)
+                player.HealthValue -= damage;
+            if (player.HealthValue < 0)
+                player.HealthValue = 0;
+
+        }
+    }
 }
