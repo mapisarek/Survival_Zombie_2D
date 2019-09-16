@@ -30,6 +30,8 @@ See the list of [contributors](https://github.com/mapisarek/Survival_Zombie_2D/c
 
 ## Gallery
 
+### Pictures shown below are available in a reduced resolution, full pictures are avalible in Preview folder inside repository.
+
 <img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/MainMenu.PNG" width=450 height=300/>
 <img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/CharacterSelection.PNG" width=450 height=300/>
 <img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Settings.PNG" width=450 height=300/>
