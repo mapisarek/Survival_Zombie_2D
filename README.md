@@ -29,9 +29,23 @@ See the list of [contributors](https://github.com/mapisarek/Survival_Zombie_2D/c
 ![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Programs.png)
 
 ## Gallery
-![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/MainMenu.PNG)
-![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/CharacterSelection.PNG)
-![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Settings.PNG)
-![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Fighting.PNG)
-![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/InGame.PNG)
-![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Inventory.PNG)
+
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/MainMenu.PNG" width=450 height=300/>
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/CharacterSelection.PNG" width=450 height=300/>
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Settings.PNG" width=450 height=300/>
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Fighting.PNG" width=450 height=300/>
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/InGame.PNG" width=450 height=300/>
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Inventory.PNG" width=450 height=300/>
+
+## UML Design Patterns
+* Factory
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Factory.PNG"/>
+
+* State Machine
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/StateMachine.PNG"/>
+
+* Humble Object Pattern
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/HumbleObject.PNG"/>
+
+* Singleton
+<img src="https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Singleton.PNG"/>
