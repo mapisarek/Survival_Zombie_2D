@@ -1,6 +1,8 @@
 ## Unity ##
 
 *.cs diff=csharp text
+* linguist-vendored
+*.cs linguist-vendored=false
 *.cginc text
 *.shader text
 
