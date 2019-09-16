@@ -29,9 +29,9 @@ See the list of [contributors](https://github.com/mapisarek/Survival_Zombie_2D/c
 ![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Programs.png)
 
 ## Gallery
+![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/MainMenu.PNG)
 ![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/CharacterSelection.PNG)
+![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Settings.PNG)
 ![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Fighting.PNG)
 ![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/InGame.PNG)
-![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/MainMenu.PNG)
-![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Settings.PNG)
 ![image](https://github.com/mapisarek/Survival_Zombie_2D/blob/master/Preview/Inventory.PNG)
